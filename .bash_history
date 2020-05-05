@@ -46,3 +46,8 @@ make hi
 make hi
 ./hi
 git log
+git add .
+git commit -m "add hi.c"
+git push origin master
+make scores
+./scores
