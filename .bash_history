@@ -21,3 +21,15 @@ git commit -m "add array lecture 1 first files"
 git config --global user.email "olga.rosas@gmail.com"
 git config --global user.name "OlgaEva"
 git log
+git add .
+git commit -m "initial commit lecture 1"
+git push origin master
+make buggy2
+./buggy2
+make buggy2
+./buggy2
+make buggy2
+make buggy2 -lcs50
+./buggy2
+make buggy2
+./buggy2
