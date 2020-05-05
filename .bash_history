@@ -33,3 +33,16 @@ make buggy2 -lcs50
 ./buggy2
 make buggy2
 ./buggy2
+git add .
+git commit -m "add buggy2.c"
+git push origin master
+debug50 ./buggy2
+make buggy2
+make hi
+make hi -lcs50
+./hi
+make hi
+./hi
+make hi
+./hi
+git log
