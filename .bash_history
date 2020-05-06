@@ -60,3 +60,8 @@ make scores
 make scores
 ./scores
 git dd .
+git add .
+git commit -m "add scores.c"
+git push origin master
+make scores1
+./scores1
