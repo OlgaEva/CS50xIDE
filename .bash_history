@@ -149,3 +149,12 @@ make argv
 ./argv Olga
 make argv
 ./argv Olga
+git add .
+git commit -m "add argv.c"
+git push origin master
+make exit
+help50 make exit
+make exit
+./exit
+exit Olga
+./exit Olga
