@@ -165,3 +165,13 @@ make numbers
 help50 make numbers
 make numbers
 ./numbers
+git add .
+git commit -m "add numbers.c"
+git push origin master
+make names1
+help50 make names1
+make names1
+make names1
+./names1
+make names1
+./names1
