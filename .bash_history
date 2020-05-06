@@ -128,3 +128,13 @@ make string
 help50 make string
 make string
 ./string
+git add .
+git commit -m "add string.c"
+git push origin master
+make uppercase
+make uppercase
+help50 make uppercase
+make uppercase
+./uppercase
+make uppercase
+./uppercase
