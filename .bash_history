@@ -175,3 +175,8 @@ make names1
 ./names1
 make names1
 ./names1
+git add .
+git commit -m "add names1.c"
+git push origin master
+make phonebook
+./phonebook
