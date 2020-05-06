@@ -111,3 +111,6 @@ make names
 make names
 ./names
 git log
+git add .
+git commit -m "add names.c"
+git push origin master
