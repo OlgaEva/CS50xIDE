@@ -92,3 +92,8 @@ make scores3 -lcs50
 clang -o scores3 scores3.c 
 make scores3 -lcs50
 ./scores3
+git add .
+git commit -m "add scores3.c"
+git push origin master
+make scores3
+./scores3
