@@ -97,3 +97,17 @@ git commit -m "add scores3.c"
 git push origin master
 make scores3
 ./scores3
+git add .
+git commit -m "edit scores3.c"
+git push origin master
+make names
+make names
+make names
+help 50 make names
+help50 make names
+make names
+./names
+make names
+make names
+./names
+git log
