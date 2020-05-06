@@ -114,3 +114,17 @@ git log
 git add .
 git commit -m "add names.c"
 git push origin master
+git add .
+git commit -m "add names.c"
+git push origin master
+make string
+make string
+./string
+make string
+./string
+make string
+./string
+make string
+help50 make string
+make string
+./string
