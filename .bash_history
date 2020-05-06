@@ -158,3 +158,10 @@ make exit
 ./exit
 exit Olga
 ./exit Olga
+git add .
+git commit -m "add exit.c"
+git push origin master
+make numbers
+help50 make numbers
+make numbers
+./numbers
