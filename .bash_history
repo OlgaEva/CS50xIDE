@@ -74,3 +74,21 @@ help50 make scores2
 make scores2
 make scores2
 ./scores2
+git add .
+git commit -m "add scores2.c"
+git push origin master
+make scores2
+./scores2
+make scores3
+help50 make scores3
+make scores3
+help50 make scores3
+make scores3
+make scores3
+make scores3
+help50 make scores3
+make scores3
+make scores3 -lcs50
+clang -o scores3 scores3.c 
+make scores3 -lcs50
+./scores3
