@@ -138,3 +138,6 @@ make uppercase
 ./uppercase
 make uppercase
 ./uppercase
+git add .
+git commit -m "add uppercase.c"
+git push origin master
