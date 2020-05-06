@@ -51,3 +51,12 @@ git commit -m "add hi.c"
 git push origin master
 make scores
 ./scores
+git add .
+git commit -m "add scores.c"
+git push origin master
+nake scores
+make scores
+make scores
+make scores
+./scores
+git dd .
