@@ -65,3 +65,12 @@ git commit -m "add scores.c"
 git push origin master
 make scores1
 ./scores1
+git add .
+git commit -m "add scores1.c"
+git push origin master
+make scores2
+make scores2
+help50 make scores2
+make scores2
+make scores2
+./scores2
