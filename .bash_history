@@ -141,3 +141,11 @@ make uppercase
 git add .
 git commit -m "add uppercase.c"
 git push origin master
+git add .
+git commit -m "add uppercase.c"
+git push origin master
+make argv
+./argv
+./argv Olga
+make argv
+./argv Olga
