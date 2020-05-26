@@ -94,3 +94,1247 @@ SENDING: Content-Length:250
 
 {"thread":"1","frames":[{"level":"0","addr":"0x00000000004005cf","func":"main","file":"buggy2.c","fullname":"/home/ubuntu/buggy2.c","line":"6","exists":true,"args":[],"locals":[{"name":"i","type":"int","value":"0","objname":"var1","numchild":"0"}]}]}
 GDB: ^done
+
+
+Wed May 20 2020 20:59:36 GMT+0000 (Coordinated Universal Time)1-target-select remote localhost:15470
+
+GDB: =thread-group-added,id="i1"
+GDB: ~"Reading symbols from caesar..."
+GDB: ~"done.\n"
+GDB: =tsv-created,name="trace_timestamp",initial="0"\n
+GDB: =thread-group-started,id="i1",pid="7548"
+GDB: =thread-created,id="1",group-id="i1"
+GDB: ~"Reading /lib64/ld-linux-x86-64.so.2 from remote target...\n"
+GDB: &"warning: File transfers from remote targets can be slow. Use \"set sysroot\" to access files locally instead.\n"
+GDB: ~"Reading /lib64/ld-linux-x86-64.so.2 from remote target...\n"
+GDB: =library-loaded,id="/lib64/ld-linux-x86-64.so.2",target-name="/lib64/ld-linux-x86-64.so.2",host-name="target:/lib64/ld-linux-x86-64.so.2",symbols-loaded="0",thread-group="i1",ranges=[{from="0x00007ffff7dd5f10",to="0x00007ffff7df4b20"}]
+GDB: ~"Reading /lib64/ld-2.27.so from remote target...\n"
+GDB: ~"Reading /lib64/.debug/ld-2.27.so from remote target...\n"
+GDB: ~"0x00007ffff7dd6090 in ?? () from target:/lib64/ld-linux-x86-64.so.2\n"
+GDB: *stopped,frame={addr="0x00007ffff7dd6090",func="??",args=[],from="target:/lib64/ld-linux-x86-64.so.2"},thread-id="1",stopped-threads="all",core="1"
+GDB: 1^connected
+2set breakpoint condition-evaluation host
+
+GDB: &"set breakpoint condition-evaluation host\n"
+GDB: =cmd-param-changed,param="breakpoint condition-evaluation",value="host"
+GDB: 2^done
+PROXY: server connected
+SENDING: Content-Length:9
+
+"connect"
+PLUGIN: Content-Length:29
+
+{"command":"bp-list","_id":1}
+3-break-list 
+
+GDB: 3^done,BreakpointTable={nr_rows="0",nr_cols="6",hdr=[{width="7",alignment="-1",col_name="number",colhdr="Num"},{width="14",alignment="-1",col_name="type",colhdr="Type"},{width="4",alignment="-1",col_name="disp",colhdr="Disp"},{width="3",alignment="-1",col_name="enabled",colhdr="Enb"},{width="10",alignment="-1",col_name="addr",colhdr="Address"},{width="40",alignment="2",col_name="what",colhdr="What"}],body=[]}
+SENDING: Content-Length:510
+
+{"_seq":"3","state":"done","status":{"BreakpointTable":{"nr_rows":"0","nr_cols":"6","hdr":[{"width":"7","alignment":"-1","col_name":"number","colhdr":"Num"},{"width":"14","alignment":"-1","col_name":"type","colhdr":"Type"},{"width":"4","alignment":"-1","col_name":"disp","colhdr":"Disp"},{"width":"3","alignment":"-1","col_name":"enabled","colhdr":"Enb"},{"width":"10","alignment":"-1","col_name":"addr","colhdr":"Address"},{"width":"40","alignment":"2","col_name":"what","colhdr":"What"}],"body":[]}},"_id":1}
+PLUGIN: Content-Length:179
+
+{"path":"/buggy2.c","line":4,"column":0,"text":"buggy2.c","content":"{","time":1588713985015,"enabled":true,"fullpath":"/home/ubuntu/buggy2.c","command":"bp-set","_id":2,"id":"1"}
+4-break-insert "/home/ubuntu/buggy2.c:5"
+
+GDB: 4^error,msg="No source file named /home/ubuntu/buggy2.c."
+SENDING: Content-Length:99
+
+{"_seq":"4","state":"error","status":{"msg":"No source file named /home/ubuntu/buggy2.c."},"_id":2}
+PLUGIN: Content-Length:226
+
+{"path":"/caesar.c","line":18,"column":12,"text":"caesar.c","content":"            printf(\"%c\", (int) s[i] + (int) argv[1]);","time":1590007602415,"enabled":true,"fullpath":"/home/ubuntu/caesar.c","command":"bp-set","_id":3}
+5-break-insert "/home/ubuntu/caesar.c:19"
+
+GDB: 5^done,bkpt={number="1",type="breakpoint",disp="keep",enabled="y",addr="0x000000000040070b",func="main",file="caesar.c",fullname="/home/ubuntu/caesar.c",line="19",thread-groups=["i1"],times="0",original-location="/home/ubuntu/caesar.c:19"}
+SENDING: Content-Length:305
+
+{"_seq":"5","state":"done","status":{"bkpt":{"number":"1","type":"breakpoint","disp":"keep","enabled":"y","addr":"0x000000000040070b","func":"main","file":"caesar.c","fullname":"/home/ubuntu/caesar.c","line":"19","thread-groups":["i1"],"times":"0","original-location":"/home/ubuntu/caesar.c:19"}},"_id":3}
+PLUGIN: Content-Length:30
+
+{"command":"continue","_id":4}
+6-exec-continue 
+
+GDB: 6^running
+SENDING: Content-Length:50
+
+{"_seq":"6","state":"running","status":{},"_id":4}
+GDB: *running,thread-id="all"
+GDB: ~"Reading /lib/x86_64-linux-gnu/libcrypt.so.1 from remote target...\n"
+GDB: =library-loaded,id="/lib/x86_64-linux-gnu/libcrypt.so.1",target-name="/lib/x86_64-linux-gnu/libcrypt.so.1",host-name="target:/lib/x86_64-linux-gnu/libcrypt.so.1",symbols-loaded="0",thread-group="i1",ranges=[{from="0x00007ffff7b9dd50",to="0x00007ffff7ba38b8"}]
+GDB: ~"Reading /usr/lib/libcs50.so.10 from remote target...\n"
+GDB: =library-loaded,id="/usr/lib/libcs50.so.10",target-name="/usr/lib/libcs50.so.10",host-name="target:/usr/lib/libcs50.so.10",symbols-loaded="0",thread-group="i1",ranges=[{from="0x00007ffff7999c40",to="0x00007ffff799abb9"}]
+GDB: ~"Reading /lib/x86_64-linux-gnu/libm.so.6 from remote target...\n"
+GDB: =library-loaded,id="/lib/x86_64-linux-gnu/libm.so.6",target-name="/lib/x86_64-linux-gnu/libm.so.6",host-name="target:/lib/x86_64-linux-gnu/libm.so.6",symbols-loaded="0",thread-group="i1",ranges=[{from="0x00007ffff7606a80",to="0x00007ffff76c52f5"}]
+GDB: ~"Reading /lib/x86_64-linux-gnu/libc.so.6 from remote target...\n"
+GDB: =library-loaded,id="/lib/x86_64-linux-gnu/libc.so.6",target-name="/lib/x86_64-linux-gnu/libc.so.6",host-name="target:/lib/x86_64-linux-gnu/libc.so.6",symbols-loaded="0",thread-group="i1",ranges=[{from="0x00007ffff722b2d0",to="0x00007ffff73a3c3c"}]
+GDB: ~"Reading /lib/x86_64-linux-gnu/libcrypt-2.27.so from remote target...\n"
+GDB: ~"Reading /lib/x86_64-linux-gnu/.debug/libcrypt-2.27.so from remote target...\n"
+GDB: ~"Reading /lib/x86_64-linux-gnu/libm-2.27.so from remote target...\n"
+GDB: ~"Reading /lib/x86_64-linux-gnu/.debug/libm-2.27.so from remote target...\n"
+GDB: ~"Reading /lib/x86_64-linux-gnu/libc-2.27.so from remote target...\n"
+GDB: ~"Reading /lib/x86_64-linux-gnu/.debug/libc-2.27.so from remote target...\n"
+
+Child exited with status 1
+
+GDB: ~"[Inferior 1 (process 7548) exited with code 01]\n"
+GDB: =thread-group-exited,id="i1",exit-code="01"
+GDB: *stopped,reason="exited",exit-code="01"
+
+
+Wed May 20 2020 21:01:09 GMT+0000 (Coordinated Universal Time)1-target-select remote localhost:15470
+
+GDB: =thread-group-added,id="i1"
+GDB: ~"Reading symbols from ./caesar..."
+GDB: ~"done.\n"
+GDB: =tsv-created,name="trace_timestamp",initial="0"\n
+GDB: =thread-group-started,id="i1",pid="7756"
+GDB: =thread-created,id="1",group-id="i1"
+GDB: ~"Reading /lib64/ld-linux-x86-64.so.2 from remote target...\n"
+GDB: &"warning: File transfers from remote targets can be slow. Use \"set sysroot\" to access files locally instead.\n"
+GDB: ~"Reading /lib64/ld-linux-x86-64.so.2 from remote target...\n"
+GDB: =library-loaded,id="/lib64/ld-linux-x86-64.so.2",target-name="/lib64/ld-linux-x86-64.so.2",host-name="target:/lib64/ld-linux-x86-64.so.2",symbols-loaded="0",thread-group="i1",ranges=[{from="0x00007ffff7dd5f10",to="0x00007ffff7df4b20"}]
+GDB: ~"Reading /lib64/ld-2.27.so from remote target...\n"
+GDB: ~"Reading /lib64/.debug/ld-2.27.so from remote target...\n"
+GDB: ~"0x00007ffff7dd6090 in ?? () from target:/lib64/ld-linux-x86-64.so.2\n"
+GDB: *stopped,frame={addr="0x00007ffff7dd6090",func="??",args=[],from="target:/lib64/ld-linux-x86-64.so.2"},thread-id="1",stopped-threads="all",core="7"
+GDB: 1^connected
+2set breakpoint condition-evaluation host
+
+GDB: &"set breakpoint condition-evaluation host\n"
+GDB: =cmd-param-changed,param="breakpoint condition-evaluation",value="host"
+GDB: 2^done
+PROXY: server connected
+SENDING: Content-Length:9
+
+"connect"
+PLUGIN: Content-Length:29
+
+{"command":"bp-list","_id":1}
+3-break-list 
+
+GDB: 3^done,BreakpointTable={nr_rows="0",nr_cols="6",hdr=[{width="7",alignment="-1",col_name="number",colhdr="Num"},{width="14",alignment="-1",col_name="type",colhdr="Type"},{width="4",alignment="-1",col_name="disp",colhdr="Disp"},{width="3",alignment="-1",col_name="enabled",colhdr="Enb"},{width="10",alignment="-1",col_name="addr",colhdr="Address"},{width="40",alignment="2",col_name="what",colhdr="What"}],body=[]}
+SENDING: Content-Length:510
+
+{"_seq":"3","state":"done","status":{"BreakpointTable":{"nr_rows":"0","nr_cols":"6","hdr":[{"width":"7","alignment":"-1","col_name":"number","colhdr":"Num"},{"width":"14","alignment":"-1","col_name":"type","colhdr":"Type"},{"width":"4","alignment":"-1","col_name":"disp","colhdr":"Disp"},{"width":"3","alignment":"-1","col_name":"enabled","colhdr":"Enb"},{"width":"10","alignment":"-1","col_name":"addr","colhdr":"Address"},{"width":"40","alignment":"2","col_name":"what","colhdr":"What"}],"body":[]}},"_id":1}
+PLUGIN: Content-Length:179
+
+{"path":"/buggy2.c","line":4,"column":0,"text":"buggy2.c","content":"{","time":1588713985015,"enabled":true,"fullpath":"/home/ubuntu/buggy2.c","command":"bp-set","_id":2,"id":"1"}
+4-break-insert "/home/ubuntu/buggy2.c:5"
+
+GDB: 4^error,msg="No source file named /home/ubuntu/buggy2.c."
+SENDING: Content-Length:99
+
+{"_seq":"4","state":"error","status":{"msg":"No source file named /home/ubuntu/buggy2.c."},"_id":2}
+PLUGIN: Content-Length:235
+
+{"path":"/caesar.c","line":18,"column":12,"text":"caesar.c","content":"            printf(\"%c\", (int) s[i] + (int) argv[1]);","time":1590007602415,"enabled":true,"fullpath":"/home/ubuntu/caesar.c","command":"bp-set","_id":3,"id":"1"}
+5-break-insert "/home/ubuntu/caesar.c:19"
+
+GDB: 5^done,bkpt={number="1",type="breakpoint",disp="keep",enabled="y",addr="0x000000000040070b",func="main",file="caesar.c",fullname="/home/ubuntu/caesar.c",line="19",thread-groups=["i1"],times="0",original-location="/home/ubuntu/caesar.c:19"}
+SENDING: Content-Length:305
+
+{"_seq":"5","state":"done","status":{"bkpt":{"number":"1","type":"breakpoint","disp":"keep","enabled":"y","addr":"0x000000000040070b","func":"main","file":"caesar.c","fullname":"/home/ubuntu/caesar.c","line":"19","thread-groups":["i1"],"times":"0","original-location":"/home/ubuntu/caesar.c:19"}},"_id":3}
+PLUGIN: Content-Length:30
+
+{"command":"continue","_id":4}
+6-exec-continue 
+
+GDB: 6^running
+SENDING: Content-Length:50
+
+{"_seq":"6","state":"running","status":{},"_id":4}
+GDB: *running,thread-id="all"
+GDB: ~"Reading /lib/x86_64-linux-gnu/libcrypt.so.1 from remote target...\n"
+GDB: =library-loaded,id="/lib/x86_64-linux-gnu/libcrypt.so.1",target-name="/lib/x86_64-linux-gnu/libcrypt.so.1",host-name="target:/lib/x86_64-linux-gnu/libcrypt.so.1",symbols-loaded="0",thread-group="i1",ranges=[{from="0x00007ffff7b9dd50",to="0x00007ffff7ba38b8"}]
+GDB: ~"Reading /usr/lib/libcs50.so.10 from remote target...\n"
+GDB: =library-loaded,id="/usr/lib/libcs50.so.10",target-name="/usr/lib/libcs50.so.10",host-name="target:/usr/lib/libcs50.so.10",symbols-loaded="0",thread-group="i1",ranges=[{from="0x00007ffff7999c40",to="0x00007ffff799abb9"}]
+GDB: ~"Reading /lib/x86_64-linux-gnu/libm.so.6 from remote target...\n"
+GDB: =library-loaded,id="/lib/x86_64-linux-gnu/libm.so.6",target-name="/lib/x86_64-linux-gnu/libm.so.6",host-name="target:/lib/x86_64-linux-gnu/libm.so.6",symbols-loaded="0",thread-group="i1",ranges=[{from="0x00007ffff7606a80",to="0x00007ffff76c52f5"}]
+GDB: ~"Reading /lib/x86_64-linux-gnu/libc.so.6 from remote target...\n"
+GDB: =library-loaded,id="/lib/x86_64-linux-gnu/libc.so.6",target-name="/lib/x86_64-linux-gnu/libc.so.6",host-name="target:/lib/x86_64-linux-gnu/libc.so.6",symbols-loaded="0",thread-group="i1",ranges=[{from="0x00007ffff722b2d0",to="0x00007ffff73a3c3c"}]
+GDB: ~"Reading /lib/x86_64-linux-gnu/libcrypt-2.27.so from remote target...\n"
+GDB: ~"Reading /lib/x86_64-linux-gnu/.debug/libcrypt-2.27.so from remote target...\n"
+GDB: ~"Reading /lib/x86_64-linux-gnu/libm-2.27.so from remote target...\n"
+GDB: ~"Reading /lib/x86_64-linux-gnu/.debug/libm-2.27.so from remote target...\n"
+GDB: ~"Reading /lib/x86_64-linux-gnu/libc-2.27.so from remote target...\n"
+GDB: ~"Reading /lib/x86_64-linux-gnu/.debug/libc-2.27.so from remote target...\n"
+PLUGIN: Content-Length:29
+
+{"command":"suspend","_id":5}
+SENDING: Content-Length:27
+
+{"_id":5,"state":"stopped"}
+GDB: ~"\nProgram"
+GDB: ~" received signal SIGINT, Interrupt.\n"
+GDB: ~"0x00007ffff731a081 in __GI___libc_read (fd=0, buf=0x602260, nbytes=4096) at ../sysdeps/unix/sysv/linux/read.c:27\n"
+GDB: &"27\t../sysdeps/unix/sysv/linux/read.c: No such file or directory.\n"
+GDB: *stopped,reason="signal-received",signal-name="SIGINT",signal-meaning="Interrupt",frame={addr="0x00007ffff731a081",func="__GI___libc_read",args=[{name="fd",value="0"},{name="buf",value="0x602260"},{name="nbytes",value="4096"}],file="../sysdeps/unix/sysv/linux/read.c",fullname="/build/glibc-OTsEL5/glibc-2.27/io/../sysdeps/unix/sysv/linux/read.c",line="27"},thread-id="1",stopped-threads="all",core="6"
+7-stack-list-frames 0 50
+
+GDB: 7^done,stack=[frame={level="0",addr="0x00007ffff731a081",func="__GI___libc_read",file="../sysdeps/unix/sysv/linux/read.c",fullname="/build/glibc-OTsEL5/glibc-2.27/io/../sysdeps/unix/sysv/linux/read.c",line="27"},frame={level="1",addr="0x00007ffff7297148",func="_IO_new_file_underflow",file="fileops.c",fullname="/build/glibc-OTsEL5/glibc-2.27/libio/fileops.c",line="531"},frame={level="2",addr="0x00007ffff72983f2",func="__GI__IO_default_uflow",file="genops.c",fullname="/build/glibc-OTsEL5/glibc-2.27/libio/genops.c",line="380"},frame={level="3",addr="0x00007ffff7999f3d",func="get_string",from="target:/usr/lib/libcs50.so.10"},frame={level="4",addr="0x000000000040067e",func="main",file="caesar.c",fullname="/home/ubuntu/caesar.c",line="7"}]
+8-stack-list-arguments --simple-values 0 50
+
+GDB: 8^done,stack-args=[frame={level="0",args=[{name="fd",type="int",value="0"},{name="buf",type="void *",value="0x602260"},{name="nbytes",type="size_t",value="4096"}]},frame={level="1",args=[{name="fp",type="_IO_FILE *",value="0x7ffff75f5a00 <_IO_2_1_stdin_>"}]},frame={level="2",args=[{name="fp",type="_IO_FILE *",value="0x7ffff75f5a00 <_IO_2_1_stdin_>"}]},frame={level="3",args=[]},frame={level="4",args=[{name="argc",type="int",value="1"},{name="argv",type="string *",value="0x7fffffffe738"}]}]
+9-stack-list-locals --thread 1 --frame 4 --simple-values
+
+GDB: 9^done,locals=[{name="s",type="string",value="0x400560 <_start> \"1\\355I\\211\\321^H\\211\\342H\\203\\344\\360PTI\\307\\300\\020\\b@\""}]
+10-stack-list-locals --thread 1 --frame 3 --simple-values
+
+GDB: 10^done,locals=[]
+11-stack-list-locals --thread 1 --frame 2 --simple-values
+
+GDB: 11^done,locals=[{name="ch",type="int",value="<optimized out>"}]
+12-stack-list-locals --thread 1 --frame 1 --simple-values
+
+GDB: 12^done,locals=[{name="count",type="__ssize_t",value="<optimized out>"}]
+13-stack-list-locals --thread 1 --frame 0 --simple-values
+
+GDB: 13^done,locals=[{name="resultvar",type="unsigned long",value="18446744073709551104"},{name="sc_ret",type="long",value="<optimized out>"}]
+14-var-update --all-values *
+
+GDB: 14^done,changelist=[]
+15-var-create - * s
+
+GDB: 15^error,msg="-var-create: unable to create variable object"
+16-var-create - * argv
+
+GDB: 16^error,msg="-var-create: unable to create variable object"
+17-var-create - * argc
+
+GDB: 17^error,msg="-var-create: unable to create variable object"
+18-var-create - * ch
+
+GDB: 18^error,msg="-var-create: unable to create variable object"
+19-var-create - * fp
+
+GDB: 19^error,msg="-var-create: unable to create variable object"
+20-var-create - * count
+
+GDB: 20^error,msg="-var-create: unable to create variable object"
+21-var-create - * fp
+
+GDB: 21^error,msg="-var-create: unable to create variable object"
+22-var-create - * sc_ret
+
+GDB: 22^done,name="var8",numchild="0",value="<optimized out>",type="long",thread-id="1",has_more="0"
+23-var-create - * resultvar
+
+GDB: 23^done,name="var9",numchild="0",value="18446744073709551104",type="unsigned long",thread-id="1",has_more="0"
+24-var-create - * nbytes
+
+GDB: 24^done,name="var10",numchild="0",value="4096",type="size_t",thread-id="1",has_more="0"
+25-var-create - * buf
+
+GDB: 25^done,name="var11",numchild="0",value="0x602260",type="void *",thread-id="1",has_more="0"
+26-var-create - * fd
+
+GDB: 26^done,name="var12",numchild="0",value="0",type="int",thread-id="1",has_more="0"
+-stack-select-frame 0
+
+SENDING: Content-Length:2043
+
+{"err":"signal","signal":{"name":"SIGINT","text":"Interrupt"},"thread":"1","frames":[{"level":"0","addr":"0x00007ffff731a081","func":"__GI___libc_read","file":"../sysdeps/unix/sysv/linux/read.c","fullname":"/build/glibc-OTsEL5/glibc-2.27/io/../sysdeps/unix/sysv/linux/read.c","line":"27","exists":false,"args":[{"name":"fd","type":"int","value":"0","objname":"var12","numchild":"0"},{"name":"buf","type":"void *","value":"0x602260","address":6300256,"objname":"var11","numchild":"0"},{"name":"nbytes","type":"size_t","value":"4096","objname":"var10","numchild":"0"}],"locals":[{"name":"resultvar","type":"unsigned long","value":"18446744073709551104","objname":"var9","numchild":"0"},{"name":"sc_ret","type":"long","value":"<optimized out>","objname":"var8","numchild":"0"}]},{"level":"1","addr":"0x00007ffff7297148","func":"_IO_new_file_underflow","file":"fileops.c","fullname":"/build/glibc-OTsEL5/glibc-2.27/libio/fileops.c","line":"531","exists":false,"args":[{"name":"fp","type":"_IO_FILE *","value":"0x7ffff75f5a00 <_IO_2_1_stdin_>","address":140737343609344}],"locals":[{"name":"count","type":"__ssize_t","value":"<optimized out>"}]},{"level":"2","addr":"0x00007ffff72983f2","func":"__GI__IO_default_uflow","file":"genops.c","fullname":"/build/glibc-OTsEL5/glibc-2.27/libio/genops.c","line":"380","exists":false,"args":[{"name":"fp","type":"_IO_FILE *","value":"0x7ffff75f5a00 <_IO_2_1_stdin_>","address":140737343609344}],"locals":[{"name":"ch","type":"int","value":"<optimized out>"}]},{"level":"3","addr":"0x00007ffff7999f3d","func":"get_string","from":"target:/usr/lib/libcs50.so.10","exists":false,"args":[],"locals":[]},{"level":"4","addr":"0x000000000040067e","func":"main","file":"caesar.c","fullname":"/home/ubuntu/caesar.c","line":"7","exists":true,"args":[{"name":"argc","type":"int","value":"1"},{"name":"argv","type":"string *","value":"0x7fffffffe738","address":140737488348984}],"locals":[{"name":"s","type":"string","value":"0x400560 <_start> \"1\\355I\\211\\321^H\\211\\342H\\203\\344\\360PTI\\307\\300\\020\\b@\""}]}]}
+GDB: ^done
+PLUGIN: Content-Length:30
+
+{"command":"continue","_id":6}
+27-exec-continue 
+
+GDB: 27^running
+SENDING: Content-Length:51
+
+{"_seq":"27","state":"running","status":{},"_id":6}
+GDB: *running,thread-id="all"
+
+Child exited with status 1
+
+GDB: ~"[Inferior 1 (process 7756) exited with code 01]\n"
+GDB: =thread-group-exited,id="i1",exit-code="01"
+GDB: *stopped,reason="exited",exit-code="01"
+GDB server terminated with code 0 and signal null
+
+
+Wed May 20 2020 21:01:58 GMT+0000 (Coordinated Universal Time)1-target-select remote localhost:15470
+
+GDB: =thread-group-added,id="i1"
+GDB: ~"Reading symbols from ./caesar..."
+GDB: ~"done.\n"
+GDB: =tsv-created,name="trace_timestamp",initial="0"\n
+GDB: =thread-group-started,id="i1",pid="7937"
+GDB: =thread-created,id="1",group-id="i1"
+GDB: ~"Reading /lib64/ld-linux-x86-64.so.2 from remote target...\n"
+GDB: &"warning: File transfers from remote targets can be slow. Use \"set sysroot\" to access files locally instead.\n"
+GDB: ~"Reading /lib64/ld-linux-x86-64.so.2 from remote target...\n"
+GDB: =library-loaded,id="/lib64/ld-linux-x86-64.so.2",target-name="/lib64/ld-linux-x86-64.so.2",host-name="target:/lib64/ld-linux-x86-64.so.2",symbols-loaded="0",thread-group="i1",ranges=[{from="0x00007ffff7dd5f10",to="0x00007ffff7df4b20"}]
+GDB: ~"Reading /lib64/ld-2.27.so from remote target...\n"
+GDB: ~"Reading /lib64/.debug/ld-2.27.so from remote target...\n"
+GDB: ~"0x00007ffff7dd6090 in ?? () from target:/lib64/ld-linux-x86-64.so.2\n"
+GDB: *stopped,frame={addr="0x00007ffff7dd6090",func="??",args=[],from="target:/lib64/ld-linux-x86-64.so.2"},thread-id="1",stopped-threads="all",core="5"
+GDB: 1^connected
+2set breakpoint condition-evaluation host
+
+GDB: &"set breakpoint condition-evaluation host\n"
+GDB: =cmd-param-changed,param="breakpoint condition-evaluation",value="host"
+GDB: 2^done
+PROXY: server connected
+SENDING: Content-Length:9
+
+"connect"
+PLUGIN: Content-Length:29
+
+{"command":"bp-list","_id":1}
+3-break-list 
+
+GDB: 3^done,BreakpointTable={nr_rows="0",nr_cols="6",hdr=[{width="7",alignment="-1",col_name="number",colhdr="Num"},{width="14",alignment="-1",col_name="type",colhdr="Type"},{width="4",alignment="-1",col_name="disp",colhdr="Disp"},{width="3",alignment="-1",col_name="enabled",colhdr="Enb"},{width="10",alignment="-1",col_name="addr",colhdr="Address"},{width="40",alignment="2",col_name="what",colhdr="What"}],body=[]}
+SENDING: Content-Length:510
+
+{"_seq":"3","state":"done","status":{"BreakpointTable":{"nr_rows":"0","nr_cols":"6","hdr":[{"width":"7","alignment":"-1","col_name":"number","colhdr":"Num"},{"width":"14","alignment":"-1","col_name":"type","colhdr":"Type"},{"width":"4","alignment":"-1","col_name":"disp","colhdr":"Disp"},{"width":"3","alignment":"-1","col_name":"enabled","colhdr":"Enb"},{"width":"10","alignment":"-1","col_name":"addr","colhdr":"Address"},{"width":"40","alignment":"2","col_name":"what","colhdr":"What"}],"body":[]}},"_id":1}
+PLUGIN: Content-Length:179
+
+{"path":"/buggy2.c","line":4,"column":0,"text":"buggy2.c","content":"{","time":1588713985015,"enabled":true,"fullpath":"/home/ubuntu/buggy2.c","command":"bp-set","_id":2,"id":"1"}
+4-break-insert "/home/ubuntu/buggy2.c:5"
+
+GDB: 4^error,msg="No source file named /home/ubuntu/buggy2.c."
+SENDING: Content-Length:99
+
+{"_seq":"4","state":"error","status":{"msg":"No source file named /home/ubuntu/buggy2.c."},"_id":2}
+PLUGIN: Content-Length:246
+
+{"path":"/caesar.c","line":18,"column":12,"text":"caesar.c","content":"            printf(\"%c\", (int) s[i] + (int) argv[1]);","time":1590007602415,"enabled":true,"moved":18,"fullpath":"/home/ubuntu/caesar.c","command":"bp-set","_id":3,"id":"1"}
+5-break-insert "/home/ubuntu/caesar.c:19"
+
+GDB: 5^done,bkpt={number="1",type="breakpoint",disp="keep",enabled="y",addr="0x000000000040070b",func="main",file="caesar.c",fullname="/home/ubuntu/caesar.c",line="19",thread-groups=["i1"],times="0",original-location="/home/ubuntu/caesar.c:19"}
+SENDING: Content-Length:305
+
+{"_seq":"5","state":"done","status":{"bkpt":{"number":"1","type":"breakpoint","disp":"keep","enabled":"y","addr":"0x000000000040070b","func":"main","file":"caesar.c","fullname":"/home/ubuntu/caesar.c","line":"19","thread-groups":["i1"],"times":"0","original-location":"/home/ubuntu/caesar.c:19"}},"_id":3}
+PLUGIN: Content-Length:30
+
+{"command":"continue","_id":4}
+6-exec-continue 
+
+GDB: 6^running
+SENDING: Content-Length:50
+
+{"_seq":"6","state":"running","status":{},"_id":4}
+GDB: *running,thread-id="all"
+GDB: ~"Reading /lib/x86_64-linux-gnu/libcrypt.so.1 from remote target...\n"
+GDB: =library-loaded,id="/lib/x86_64-linux-gnu/libcrypt.so.1",target-name="/lib/x86_64-linux-gnu/libcrypt.so.1",host-name="target:/lib/x86_64-linux-gnu/libcrypt.so.1",symbols-loaded="0",thread-group="i1",ranges=[{from="0x00007ffff7b9dd50",to="0x00007ffff7ba38b8"}]
+GDB: ~"Reading /usr/lib/libcs50.so.10 from remote target...\n"
+GDB: =library-loaded,id="/usr/lib/libcs50.so.10",target-name="/usr/lib/libcs50.so.10",host-name="target:/usr/lib/libcs50.so.10",symbols-loaded="0",thread-group="i1",ranges=[{from="0x00007ffff7999c40",to="0x00007ffff799abb9"}]
+GDB: ~"Reading /lib/x86_64-linux-gnu/libm.so.6 from remote target...\n"
+GDB: =library-loaded,id="/lib/x86_64-linux-gnu/libm.so.6",target-name="/lib/x86_64-linux-gnu/libm.so.6",host-name="target:/lib/x86_64-linux-gnu/libm.so.6",symbols-loaded="0",thread-group="i1",ranges=[{from="0x00007ffff7606a80",to="0x00007ffff76c52f5"}]
+GDB: ~"Reading /lib/x86_64-linux-gnu/libc.so.6 from remote target...\n"
+GDB: =library-loaded,id="/lib/x86_64-linux-gnu/libc.so.6",target-name="/lib/x86_64-linux-gnu/libc.so.6",host-name="target:/lib/x86_64-linux-gnu/libc.so.6",symbols-loaded="0",thread-group="i1",ranges=[{from="0x00007ffff722b2d0",to="0x00007ffff73a3c3c"}]
+GDB: ~"Reading /lib/x86_64-linux-gnu/libcrypt-2.27.so from remote target...\n"
+GDB: ~"Reading /lib/x86_64-linux-gnu/.debug/libcrypt-2.27.so from remote target...\n"
+GDB: ~"Reading /lib/x86_64-linux-gnu/libm-2.27.so from remote target...\n"
+GDB: ~"Reading /lib/x86_64-linux-gnu/.debug/libm-2.27.so from remote target...\n"
+GDB: ~"Reading /lib/x86_64-linux-gnu/libc-2.27.so from remote target...\n"
+GDB: ~"Reading /lib/x86_64-linux-gnu/.debug/libc-2.27.so from remote target...\n"
+GDB: =breakpoint-modified,bkpt={number="1",type="breakpoint",disp="keep",enabled="y",addr="0x000000000040070b",func="main",file="caesar.c",fullname="/home/ubuntu/caesar.c",line="19",thread-groups=["i1"],times="1",original-location="/home/ubuntu/caesar.c:19"}
+GDB: ~"\n"
+GDB: ~"Breakpoint 1, main (argc=2, argv=0x7fffffffe728) at caesar.c:19\n"
+GDB: ~"19\t            printf(\"%c\", (int) s[i] + (int) argv[1]);\n"
+GDB: *stopped,reason="breakpoint-hit",disp="keep",bkptno="1",frame={addr="0x000000000040070b",func="main",args=[{name="argc",value="2"},{name="argv",value="0x7fffffffe728"}],file="caesar.c",fullname="/home/ubuntu/caesar.c",line="19"},thread-id="1",stopped-threads="all",core="6"
+7-stack-list-frames 0 50
+
+GDB: 7^done,stack=[frame={level="0",addr="0x000000000040070b",func="main",file="caesar.c",fullname="/home/ubuntu/caesar.c",line="19"}]
+8-stack-list-arguments --simple-values 0 50
+
+GDB: 8^done,stack-args=[frame={level="0",args=[{name="argc",type="int",value="2"},{name="argv",type="string *",value="0x7fffffffe728"}]}]
+9-stack-list-locals --thread 1 --frame 0 --simple-values
+
+GDB: 9^done,locals=[{name="i",type="int",value="0"},{name="n",type="int",value="5"},{name="s",type="string",value="0x603270 \"hello\""}]
+10-var-update --all-values *
+
+GDB: 10^done,changelist=[]
+11-var-create - * s
+
+GDB: 11^done,name="var1",numchild="1",value="0x603270 \"hello\"",type="string",thread-id="1",has_more="0"
+12-var-create - * n
+
+GDB: 12^done,name="var2",numchild="0",value="5",type="int",thread-id="1",has_more="0"
+13-var-create - * i
+
+GDB: 13^done,name="var3",numchild="0",value="0",type="int",thread-id="1",has_more="0"
+14-var-create - * argv
+
+GDB: 14^done,name="var4",numchild="1",value="0x7fffffffe728",type="string *",thread-id="1",has_more="0"
+15-var-create - * argc
+
+GDB: 15^done,name="var5",numchild="0",value="2",type="int",thread-id="1",has_more="0"
+-stack-select-frame 0
+
+SENDING: Content-Length:600
+
+{"thread":"1","frames":[{"level":"0","addr":"0x000000000040070b","func":"main","file":"caesar.c","fullname":"/home/ubuntu/caesar.c","line":"19","exists":true,"args":[{"name":"argc","type":"int","value":"2","objname":"var5","numchild":"0"},{"name":"argv","type":"string *","value":"0x7fffffffe728","address":140737488348968,"objname":"var4","numchild":"1"}],"locals":[{"name":"i","type":"int","value":"0","objname":"var3","numchild":"0"},{"name":"n","type":"int","value":"5","objname":"var2","numchild":"0"},{"name":"s","type":"string","value":"0x603270 \"hello\"","objname":"var1","numchild":"1"}]}]}
+GDB: ^done
+PLUGIN: Content-Length:248
+
+{"path":"/caesar.c","line":18,"column":12,"text":"caesar.c","content":"            printf(\"%c\", (int) s[i] + (int) argv[1]);","time":1590007602415,"enabled":true,"moved":18,"fullpath":"/home/ubuntu/caesar.c","command":"bp-clear","_id":5,"id":"1"}
+16-break-delete 1
+
+GDB: 16^done
+SENDING: Content-Length:48
+
+{"_seq":"16","state":"done","status":{},"_id":5}
+PLUGIN: Content-Length:226
+
+{"path":"/caesar.c","line":18,"column":12,"text":"caesar.c","content":"            printf(\"%c\", (int) s[i] + (int) argv[1]);","time":1590008544234,"enabled":true,"fullpath":"/home/ubuntu/caesar.c","command":"bp-set","_id":6}
+17-break-insert "/home/ubuntu/caesar.c:19"
+
+GDB: 17^done,bkpt={number="2",type="breakpoint",disp="keep",enabled="y",addr="0x000000000040070b",func="main",file="caesar.c",fullname="/home/ubuntu/caesar.c",line="19",thread-groups=["i1"],times="0",original-location="/home/ubuntu/caesar.c:19"}
+SENDING: Content-Length:306
+
+{"_seq":"17","state":"done","status":{"bkpt":{"number":"2","type":"breakpoint","disp":"keep","enabled":"y","addr":"0x000000000040070b","func":"main","file":"caesar.c","fullname":"/home/ubuntu/caesar.c","line":"19","thread-groups":["i1"],"times":"0","original-location":"/home/ubuntu/caesar.c:19"}},"_id":6}
+PLUGIN: Content-Length:55
+
+{"exp":"argv[]","f":0,"t":"1","command":"eval","_id":7}
+18-data-evaluate-expression --thread 1 --frame 0 "argv[]"
+
+GDB: 18^error,msg="A syntax error in expression, near `]'."
+SENDING: Content-Length:96
+
+{"_seq":"18","state":"error","status":{"msg":"A syntax error in expression, near `]'."},"_id":7}
+PLUGIN: Content-Length:56
+
+{"exp":"argv[1]","f":0,"t":"1","command":"eval","_id":8}
+19-data-evaluate-expression --thread 1 --frame 0 "argv[1]"
+
+GDB: 19^done,value="0x7fffffffea33 \"1\""
+SENDING: Content-Length:78
+
+{"_seq":"19","state":"done","status":{"value":"0x7fffffffea33 \"1\""},"_id":8}
+PROXY: server connected
+SENDING: Content-Length:9
+
+"connect"
+PROXY: server connected
+SENDING: Content-Length:9
+
+"connect"
+
+
+Tue May 26 2020 17:51:29 GMT+0000 (Coordinated Universal Time)1-target-select remote localhost:15470
+
+GDB: =thread-group-added,id="i1"
+GDB: ~"Reading symbols from ./caesar..."
+GDB: ~"done.\n"
+GDB: =tsv-created,name="trace_timestamp",initial="0"\n
+GDB: =thread-group-started,id="i1",pid="1288"
+GDB: =thread-created,id="1",group-id="i1"
+GDB: ~"Reading /lib64/ld-linux-x86-64.so.2 from remote target...\n"
+GDB: &"warning: File transfers from remote targets can be slow. Use \"set sysroot\" to access files locally instead.\n"
+GDB: ~"Reading /lib64/ld-linux-x86-64.so.2 from remote target...\n"
+GDB: =library-loaded,id="/lib64/ld-linux-x86-64.so.2",target-name="/lib64/ld-linux-x86-64.so.2",host-name="target:/lib64/ld-linux-x86-64.so.2",symbols-loaded="0",thread-group="i1",ranges=[{from="0x00007ffff7dd5f10",to="0x00007ffff7df4b20"}]
+GDB: ~"Reading /lib64/ld-2.27.so from remote target...\n"
+GDB: ~"Reading /lib64/.debug/ld-2.27.so from remote target...\n"
+GDB: ~"0x00007ffff7dd6090 in ?? () from target:/lib64/ld-linux-x86-64.so.2\n"
+GDB: *stopped,frame={addr="0x00007ffff7dd6090",func="??",args=[],from="target:/lib64/ld-linux-x86-64.so.2"},thread-id="1",stopped-threads="all",core="11"
+GDB: 1^connected
+2set breakpoint condition-evaluation host
+
+GDB: &"set breakpoint condition-evaluation host\n"
+GDB: =cmd-param-changed,param="breakpoint condition-evaluation",value="host"
+GDB: 2^done
+PROXY: server connected
+SENDING: Content-Length:9
+
+"connect"
+PROXY: server connected
+SENDING: Content-Length:9
+
+"connect"
+PLUGIN: Content-Length:29
+
+{"command":"bp-list","_id":1}
+3-break-list 
+
+GDB: 3^done,BreakpointTable={nr_rows="0",nr_cols="6",hdr=[{width="7",alignment="-1",col_name="number",colhdr="Num"},{width="14",alignment="-1",col_name="type",colhdr="Type"},{width="4",alignment="-1",col_name="disp",colhdr="Disp"},{width="3",alignment="-1",col_name="enabled",colhdr="Enb"},{width="10",alignment="-1",col_name="addr",colhdr="Address"},{width="40",alignment="2",col_name="what",colhdr="What"}],body=[]}
+SENDING: Content-Length:510
+
+{"_seq":"3","state":"done","status":{"BreakpointTable":{"nr_rows":"0","nr_cols":"6","hdr":[{"width":"7","alignment":"-1","col_name":"number","colhdr":"Num"},{"width":"14","alignment":"-1","col_name":"type","colhdr":"Type"},{"width":"4","alignment":"-1","col_name":"disp","colhdr":"Disp"},{"width":"3","alignment":"-1","col_name":"enabled","colhdr":"Enb"},{"width":"10","alignment":"-1","col_name":"addr","colhdr":"Address"},{"width":"40","alignment":"2","col_name":"what","colhdr":"What"}],"body":[]}},"_id":1}
+PLUGIN: Content-Length:179
+
+{"path":"/buggy2.c","line":4,"column":0,"text":"buggy2.c","content":"{","time":1588713985015,"enabled":true,"fullpath":"/home/ubuntu/buggy2.c","command":"bp-set","_id":2,"id":"1"}
+4-break-insert "/home/ubuntu/buggy2.c:5"
+
+GDB: 4^error,msg="No source file named /home/ubuntu/buggy2.c."
+SENDING: Content-Length:99
+
+{"_seq":"4","state":"error","status":{"msg":"No source file named /home/ubuntu/buggy2.c."},"_id":2}
+PLUGIN: Content-Length:216
+
+{"path":"/caesar.c","line":14,"column":4,"text":"caesar.c","content":"    for (int i = 0, n = strlen(s); i < n; i++)","time":1590515464097,"enabled":true,"fullpath":"/home/ubuntu/caesar.c","command":"bp-set","_id":3}
+5-break-insert "/home/ubuntu/caesar.c:15"
+
+GDB: 5^done,bkpt={number="1",type="breakpoint",disp="keep",enabled="y",addr="0x00000000004006bd",func="main",file="caesar.c",fullname="/home/ubuntu/caesar.c",line="15",thread-groups=["i1"],times="0",original-location="/home/ubuntu/caesar.c:15"}
+SENDING: Content-Length:305
+
+{"_seq":"5","state":"done","status":{"bkpt":{"number":"1","type":"breakpoint","disp":"keep","enabled":"y","addr":"0x00000000004006bd","func":"main","file":"caesar.c","fullname":"/home/ubuntu/caesar.c","line":"15","thread-groups":["i1"],"times":"0","original-location":"/home/ubuntu/caesar.c:15"}},"_id":3}
+PLUGIN: Content-Length:53
+
+{"exp":"argv[]","f":0,"t":1,"command":"eval","_id":4}
+6-data-evaluate-expression --thread 1 --frame 0 "argv[]"
+
+PLUGIN: Content-Length:54
+
+{"exp":"argv[1]","f":0,"t":1,"command":"eval","_id":5}Content-Length:30
+
+{"command":"continue","_id":6}
+7-data-evaluate-expression --thread 1 --frame 0 "argv[1]"
+
+GDB: 6^error,msg="No symbol \"argv\" in current context."
+SENDING: Content-Length:94
+
+{"_seq":"6","state":"error","status":{"msg":"No symbol \"argv\" in current context."},"_id":4}
+8-exec-continue 
+
+GDB: 7^error,msg="No symbol \"argv\" in current context."
+SENDING: Content-Length:94
+
+{"_seq":"7","state":"error","status":{"msg":"No symbol \"argv\" in current context."},"_id":5}
+GDB: 8^running
+SENDING: Content-Length:50
+
+{"_seq":"8","state":"running","status":{},"_id":6}
+GDB: *running,thread-id="all"
+GDB: ~"Reading /lib/x86_64-linux-gnu/libcrypt.so.1 from remote target...\n"
+GDB: =library-loaded,id="/lib/x86_64-linux-gnu/libcrypt.so.1",target-name="/lib/x86_64-linux-gnu/libcrypt.so.1",host-name="target:/lib/x86_64-linux-gnu/libcrypt.so.1",symbols-loaded="0",thread-group="i1",ranges=[{from="0x00007ffff7b9dd50",to="0x00007ffff7ba38b8"}]
+GDB: ~"Reading /usr/lib/libcs50.so.10 from remote target...\n"
+GDB: =library-loaded,id="/usr/lib/libcs50.so.10",target-name="/usr/lib/libcs50.so.10",host-name="target:/usr/lib/libcs50.so.10",symbols-loaded="0",thread-group="i1",ranges=[{from="0x00007ffff7999c40",to="0x00007ffff799abb9"}]
+GDB: ~"Reading /lib/x86_64-linux-gnu/libm.so.6 from remote target...\n"
+GDB: =library-loaded,id="/lib/x86_64-linux-gnu/libm.so.6",target-name="/lib/x86_64-linux-gnu/libm.so.6",host-name="target:/lib/x86_64-linux-gnu/libm.so.6",symbols-loaded="0",thread-group="i1",ranges=[{from="0x00007ffff7606a80",to="0x00007ffff76c52f5"}]
+GDB: ~"Reading /lib/x86_64-linux-gnu/libc.so.6 from remote target...\n"
+GDB: =library-loaded,id="/lib/x86_64-linux-gnu/libc.so.6",target-name="/lib/x86_64-linux-gnu/libc.so.6",host-name="target:/lib/x86_64-linux-gnu/libc.so.6",symbols-loaded="0",thread-group="i1",ranges=[{from="0x00007ffff722b2d0",to="0x00007ffff73a3c3c"}]
+GDB: ~"Reading /lib/x86_64-linux-gnu/libcrypt-2.27.so from remote target...\n"
+GDB: ~"Reading /lib/x86_64-linux-gnu/.debug/libcrypt-2.27.so from remote target...\n"
+GDB: ~"Reading /lib/x86_64-linux-gnu/libm-2.27.so from remote target...\n"
+GDB: ~"Reading /lib/x86_64-linux-gnu/.debug/libm-2.27.so from remote target...\n"
+GDB: ~"Reading /lib/x86_64-linux-gnu/libc-2.27.so from remote target...\n"
+GDB: ~"Reading /lib/x86_64-linux-gnu/.debug/libc-2.27.so from remote target...\n"
+PLUGIN: Content-Length:29
+
+{"command":"suspend","_id":7}
+SENDING: Content-Length:27
+
+{"_id":7,"state":"stopped"}
+GDB: ~"\nProgram"
+GDB: ~" received signal SIGINT, Interrupt.\n"
+GDB: ~"0x00007ffff731a081 in __GI___libc_read (fd=0, buf=0x602260, nbytes=4096) at ../sysdeps/unix/sysv/linux/read.c:27\n"
+GDB: &"27\t../sysdeps/unix/sysv/linux/read.c: No such file or directory.\n"
+GDB: *stopped,reason="signal-received",signal-name="SIGINT",signal-meaning="Interrupt",frame={addr="0x00007ffff731a081",func="__GI___libc_read",args=[{name="fd",value="0"},{name="buf",value="0x602260"},{name="nbytes",value="4096"}],file="../sysdeps/unix/sysv/linux/read.c",fullname="/build/glibc-OTsEL5/glibc-2.27/io/../sysdeps/unix/sysv/linux/read.c",line="27"},thread-id="1",stopped-threads="all",core="11"
+9-stack-list-frames 0 50
+
+GDB: 9^done,stack=[frame={level="0",addr="0x00007ffff731a081",func="__GI___libc_read",file="../sysdeps/unix/sysv/linux/read.c",fullname="/build/glibc-OTsEL5/glibc-2.27/io/../sysdeps/unix/sysv/linux/read.c",line="27"},frame={level="1",addr="0x00007ffff7297148",func="_IO_new_file_underflow",file="fileops.c",fullname="/build/glibc-OTsEL5/glibc-2.27/libio/fileops.c",line="531"},frame={level="2",addr="0x00007ffff72983f2",func="__GI__IO_default_uflow",file="genops.c",fullname="/build/glibc-OTsEL5/glibc-2.27/libio/genops.c",line="380"},frame={level="3",addr="0x00007ffff7999f3d",func="get_string",from="target:/usr/lib/libcs50.so.10"},frame={level="4",addr="0x000000000040067e",func="main",file="caesar.c",fullname="/home/ubuntu/caesar.c",line="7"}]
+10-stack-list-arguments --simple-values 0 50
+
+GDB: 10^done,stack-args=[frame={level="0",args=[{name="fd",type="int",value="0"},{name="buf",type="void *",value="0x602260"},{name="nbytes",type="size_t",value="4096"}]},frame={level="1",args=[{name="fp",type="_IO_FILE *",value="0x7ffff75f5a00 <_IO_2_1_stdin_>"}]},frame={level="2",args=[{name="fp",type="_IO_FILE *",value="0x7ffff75f5a00 <_IO_2_1_stdin_>"}]},frame={level="3",args=[]},frame={level="4",args=[{name="argc",type="int",value="1"},{name="argv",type="string *",value="0x7fffffffe738"}]}]
+11-stack-list-locals --thread 1 --frame 4 --simple-values
+
+GDB: 11^done,locals=[{name="s",type="string",value="0x400560 <_start> \"1\\355I\\211\\321^H\\211\\342H\\203\\344\\360PTI\\307\\300\\020\\b@\""}]
+12-stack-list-locals --thread 1 --frame 3 --simple-values
+
+GDB: 12^done,locals=[]
+13-stack-list-locals --thread 1 --frame 2 --simple-values
+
+GDB: 13^done,locals=[{name="ch",type="int",value="<optimized out>"}]
+14-stack-list-locals --thread 1 --frame 1 --simple-values
+
+GDB: 14^done,locals=[{name="count",type="__ssize_t",value="<optimized out>"}]
+15-stack-list-locals --thread 1 --frame 0 --simple-values
+
+GDB: 15^done,locals=[{name="resultvar",type="unsigned long",value="18446744073709551104"},{name="sc_ret",type="long",value="<optimized out>"}]
+16-var-update --all-values *
+
+GDB: 16^done,changelist=[]
+17-var-create - * s
+
+GDB: 17^error,msg="-var-create: unable to create variable object"
+18-var-create - * argv
+
+GDB: 18^error,msg="-var-create: unable to create variable object"
+19-var-create - * argc
+
+GDB: 19^error,msg="-var-create: unable to create variable object"
+20-var-create - * ch
+
+GDB: 20^error,msg="-var-create: unable to create variable object"
+21-var-create - * fp
+
+GDB: 21^error,msg="-var-create: unable to create variable object"
+22-var-create - * count
+
+GDB: 22^error,msg="-var-create: unable to create variable object"
+23-var-create - * fp
+
+GDB: 23^error,msg="-var-create: unable to create variable object"
+24-var-create - * sc_ret
+
+GDB: 24^done,name="var8",numchild="0",value="<optimized out>",type="long",thread-id="1",has_more="0"
+25-var-create - * resultvar
+
+GDB: 25^done,name="var9",numchild="0",value="18446744073709551104",type="unsigned long",thread-id="1",has_more="0"
+26-var-create - * nbytes
+
+GDB: 26^done,name="var10",numchild="0",value="4096",type="size_t",thread-id="1",has_more="0"
+27-var-create - * buf
+
+GDB: 27^done,name="var11",numchild="0",value="0x602260",type="void *",thread-id="1",has_more="0"
+28-var-create - * fd
+
+GDB: 28^done,name="var12",numchild="0",value="0",type="int",thread-id="1",has_more="0"
+-stack-select-frame 0
+
+SENDING: Content-Length:2043
+
+{"err":"signal","signal":{"name":"SIGINT","text":"Interrupt"},"thread":"1","frames":[{"level":"0","addr":"0x00007ffff731a081","func":"__GI___libc_read","file":"../sysdeps/unix/sysv/linux/read.c","fullname":"/build/glibc-OTsEL5/glibc-2.27/io/../sysdeps/unix/sysv/linux/read.c","line":"27","exists":false,"args":[{"name":"fd","type":"int","value":"0","objname":"var12","numchild":"0"},{"name":"buf","type":"void *","value":"0x602260","address":6300256,"objname":"var11","numchild":"0"},{"name":"nbytes","type":"size_t","value":"4096","objname":"var10","numchild":"0"}],"locals":[{"name":"resultvar","type":"unsigned long","value":"18446744073709551104","objname":"var9","numchild":"0"},{"name":"sc_ret","type":"long","value":"<optimized out>","objname":"var8","numchild":"0"}]},{"level":"1","addr":"0x00007ffff7297148","func":"_IO_new_file_underflow","file":"fileops.c","fullname":"/build/glibc-OTsEL5/glibc-2.27/libio/fileops.c","line":"531","exists":false,"args":[{"name":"fp","type":"_IO_FILE *","value":"0x7ffff75f5a00 <_IO_2_1_stdin_>","address":140737343609344}],"locals":[{"name":"count","type":"__ssize_t","value":"<optimized out>"}]},{"level":"2","addr":"0x00007ffff72983f2","func":"__GI__IO_default_uflow","file":"genops.c","fullname":"/build/glibc-OTsEL5/glibc-2.27/libio/genops.c","line":"380","exists":false,"args":[{"name":"fp","type":"_IO_FILE *","value":"0x7ffff75f5a00 <_IO_2_1_stdin_>","address":140737343609344}],"locals":[{"name":"ch","type":"int","value":"<optimized out>"}]},{"level":"3","addr":"0x00007ffff7999f3d","func":"get_string","from":"target:/usr/lib/libcs50.so.10","exists":false,"args":[],"locals":[]},{"level":"4","addr":"0x000000000040067e","func":"main","file":"caesar.c","fullname":"/home/ubuntu/caesar.c","line":"7","exists":true,"args":[{"name":"argc","type":"int","value":"1"},{"name":"argv","type":"string *","value":"0x7fffffffe738","address":140737488348984}],"locals":[{"name":"s","type":"string","value":"0x400560 <_start> \"1\\355I\\211\\321^H\\211\\342H\\203\\344\\360PTI\\307\\300\\020\\b@\""}]}]}
+GDB: ^done
+PLUGIN: Content-Length:53
+
+{"exp":"argv[]","f":0,"t":1,"command":"eval","_id":8}
+29-data-evaluate-expression --thread 1 --frame 0 "argv[]"
+
+GDB: 29^error,msg="No symbol \"argv\" in current context."
+SENDING: Content-Length:95
+
+{"_seq":"29","state":"error","status":{"msg":"No symbol \"argv\" in current context."},"_id":8}
+PLUGIN: Content-Length:54
+
+{"exp":"argv[1]","f":0,"t":1,"command":"eval","_id":9}
+30-data-evaluate-expression --thread 1 --frame 0 "argv[1]"
+
+GDB: 30^error,msg="No symbol \"argv\" in current context."
+SENDING: Content-Length:95
+
+{"_seq":"30","state":"error","status":{"msg":"No symbol \"argv\" in current context."},"_id":9}
+PLUGIN: Content-Length:56
+
+{"exp":"argv[]","f":4,"t":"1","command":"eval","_id":10}
+31-data-evaluate-expression --thread 1 --frame 4 "argv[]"
+
+PLUGIN: Content-Length:57
+
+{"exp":"argv[1]","f":4,"t":"1","command":"eval","_id":11}
+32-data-evaluate-expression --thread 1 --frame 4 "argv[1]"
+
+GDB: 31^error,msg="A syntax error in expression, near `]'."
+SENDING: Content-Length:97
+
+{"_seq":"31","state":"error","status":{"msg":"A syntax error in expression, near `]'."},"_id":10}
+GDB: 32^done,value="0x0"
+SENDING: Content-Length:62
+
+{"_seq":"32","state":"done","status":{"value":"0x0"},"_id":11}
+PLUGIN: Content-Length:31
+
+{"command":"continue","_id":12}
+33-exec-continue 
+
+GDB: 33^running
+SENDING: Content-Length:52
+
+{"_seq":"33","state":"running","status":{},"_id":12}
+GDB: *running,thread-id="all"
+PLUGIN: Content-Length:30
+
+{"command":"suspend","_id":13}
+SENDING: Content-Length:28
+
+{"_id":13,"state":"stopped"}
+GDB: ~"\nProgram"
+GDB: ~" received signal SIGINT, Interrupt.\n"
+GDB: ~"0x00007ffff731a081 in __GI___libc_read (fd=0, buf=0x602260, nbytes=4096) at ../sysdeps/unix/sysv/linux/read.c:27\n"
+GDB: ~"27\tin ../sysdeps/unix/sysv/linux/read.c\n"
+GDB: *stopped,reason="signal-received",signal-name="SIGINT",signal-meaning="Interrupt",frame={addr="0x00007ffff731a081",func="__GI___libc_read",args=[{name="fd",value="0"},{name="buf",value="0x602260"},{name="nbytes",value="4096"}],file="../sysdeps/unix/sysv/linux/read.c",fullname="/build/glibc-OTsEL5/glibc-2.27/io/../sysdeps/unix/sysv/linux/read.c",line="27"},thread-id="1",stopped-threads="all",core="7"
+34-stack-list-frames 0 50
+
+GDB: 34^done,stack=[frame={level="0",addr="0x00007ffff731a081",func="__GI___libc_read",file="../sysdeps/unix/sysv/linux/read.c",fullname="/build/glibc-OTsEL5/glibc-2.27/io/../sysdeps/unix/sysv/linux/read.c",line="27"},frame={level="1",addr="0x00007ffff7297148",func="_IO_new_file_underflow",file="fileops.c",fullname="/build/glibc-OTsEL5/glibc-2.27/libio/fileops.c",line="531"},frame={level="2",addr="0x00007ffff72983f2",func="__GI__IO_default_uflow",file="genops.c",fullname="/build/glibc-OTsEL5/glibc-2.27/libio/genops.c",line="380"},frame={level="3",addr="0x00007ffff7999f3d",func="get_string",from="target:/usr/lib/libcs50.so.10"},frame={level="4",addr="0x000000000040067e",func="main",file="caesar.c",fullname="/home/ubuntu/caesar.c",line="7"}]
+35-stack-list-arguments --simple-values 0 50
+
+GDB: 35^done,stack-args=[frame={level="0",args=[{name="fd",type="int",value="0"},{name="buf",type="void *",value="0x602260"},{name="nbytes",type="size_t",value="4096"}]},frame={level="1",args=[{name="fp",type="_IO_FILE *",value="0x7ffff75f5a00 <_IO_2_1_stdin_>"}]},frame={level="2",args=[{name="fp",type="_IO_FILE *",value="0x7ffff75f5a00 <_IO_2_1_stdin_>"}]},frame={level="3",args=[]},frame={level="4",args=[{name="argc",type="int",value="1"},{name="argv",type="string *",value="0x7fffffffe738"}]}]
+36-var-update --all-values *
+
+GDB: 36^done,changelist=[]
+-stack-select-frame 0
+
+SENDING: Content-Length:2183
+
+{"err":"signal","signal":{"name":"SIGINT","text":"Interrupt"},"thread":"1","frames":[{"level":"0","addr":"0x00007ffff731a081","func":"__GI___libc_read","file":"../sysdeps/unix/sysv/linux/read.c","fullname":"/build/glibc-OTsEL5/glibc-2.27/io/../sysdeps/unix/sysv/linux/read.c","line":"27","exists":false,"args":[{"name":"nbytes","type":"size_t","value":"4096","objname":"var10","numchild":"0"},{"name":"buf","type":"void *","value":"0x602260","address":6300256,"objname":"var11","numchild":"0"},{"name":"fd","type":"int","value":"0","objname":"var12","numchild":"0"}],"locals":[{"name":"sc_ret","type":"long","value":"<optimized out>","objname":"var8","numchild":"0"},{"name":"resultvar","type":"unsigned long","value":"18446744073709551104","objname":"var9","numchild":"0"}]},{"level":"1","addr":"0x00007ffff7297148","func":"_IO_new_file_underflow","file":"fileops.c","fullname":"/build/glibc-OTsEL5/glibc-2.27/libio/fileops.c","line":"531","exists":false,"args":[{"name":"fp","type":"_IO_FILE *","value":"0x7ffff75f5a00 <_IO_2_1_stdin_>","address":140737343609344}],"locals":[{"name":"fp","type":"_IO_FILE *","value":"0x7ffff75f5a00 <_IO_2_1_stdin_>","address":140737343609344}]},{"level":"2","addr":"0x00007ffff72983f2","func":"__GI__IO_default_uflow","file":"genops.c","fullname":"/build/glibc-OTsEL5/glibc-2.27/libio/genops.c","line":"380","exists":false,"args":[{"name":"fp","type":"_IO_FILE *","value":"0x7ffff75f5a00 <_IO_2_1_stdin_>","address":140737343609344}],"locals":[{"name":"fp","type":"_IO_FILE *","value":"0x7ffff75f5a00 <_IO_2_1_stdin_>","address":140737343609344}]},{"level":"3","addr":"0x00007ffff7999f3d","func":"get_string","from":"target:/usr/lib/libcs50.so.10","exists":false,"args":[],"locals":[]},{"level":"4","addr":"0x000000000040067e","func":"main","file":"caesar.c","fullname":"/home/ubuntu/caesar.c","line":"7","exists":true,"args":[{"name":"fp","type":"_IO_FILE *","value":"0x7ffff75f5a00 <_IO_2_1_stdin_>","address":140737343609344},{"name":"fp","type":"_IO_FILE *","value":"0x7ffff75f5a00 <_IO_2_1_stdin_>","address":140737343609344}],"locals":[{"name":"fp","type":"_IO_FILE *","value":"0x7ffff75f5a00 <_IO_2_1_stdin_>","address":140737343609344}]}]}
+GDB: ^done
+PLUGIN: Content-Length:56
+
+{"exp":"argv[]","f":4,"t":"1","command":"eval","_id":14}
+37-data-evaluate-expression --thread 1 --frame 4 "argv[]"
+
+GDB: 37^error,msg="A syntax error in expression, near `]'."
+SENDING: Content-Length:97
+
+{"_seq":"37","state":"error","status":{"msg":"A syntax error in expression, near `]'."},"_id":14}
+PLUGIN: Content-Length:57
+
+{"exp":"argv[1]","f":4,"t":"1","command":"eval","_id":15}
+38-data-evaluate-expression --thread 1 --frame 4 "argv[1]"
+
+PLUGIN: Content-Length:56
+
+{"exp":"argv[]","f":4,"t":"1","command":"eval","_id":16}
+39-data-evaluate-expression --thread 1 --frame 4 "argv[]"
+
+PLUGIN: Content-Length:57
+
+{"exp":"argv[1]","f":4,"t":"1","command":"eval","_id":17}
+40-data-evaluate-expression --thread 1 --frame 4 "argv[1]"
+
+PLUGIN: Content-Length:56
+
+{"exp":"argv[]","f":4,"t":"1","command":"eval","_id":18}
+41-data-evaluate-expression --thread 1 --frame 4 "argv[]"
+
+GDB: 38^done,value="0x0"
+SENDING: Content-Length:62
+
+{"_seq":"38","state":"done","status":{"value":"0x0"},"_id":15}
+GDB: 39^error,msg="A syntax error in expression, near `]'."
+SENDING: Content-Length:97
+
+{"_seq":"39","state":"error","status":{"msg":"A syntax error in expression, near `]'."},"_id":16}
+PLUGIN: Content-Length:57
+
+{"exp":"argv[1]","f":4,"t":"1","command":"eval","_id":19}
+42-data-evaluate-expression --thread 1 --frame 4 "argv[1]"
+
+GDB: 40^done,value="0x0"
+SENDING: Content-Length:62
+
+{"_seq":"40","state":"done","status":{"value":"0x0"},"_id":17}
+GDB: 41^error,msg="A syntax error in expression, near `]'."
+SENDING: Content-Length:97
+
+{"_seq":"41","state":"error","status":{"msg":"A syntax error in expression, near `]'."},"_id":18}
+GDB: 42^done,value="0x0"
+SENDING: Content-Length:62
+
+{"_seq":"42","state":"done","status":{"value":"0x0"},"_id":19}
+PLUGIN: Content-Length:27
+
+{"command":"next","_id":20}
+43-exec-next 
+
+GDB: 43^running
+SENDING: Content-Length:52
+
+{"_seq":"43","state":"running","status":{},"_id":20}
+GDB: *running,thread-id="all"
+PLUGIN: Content-Length:30
+
+{"command":"suspend","_id":21}
+SENDING: Content-Length:28
+
+{"_id":21,"state":"stopped"}
+GDB: ~"\nProgram"
+GDB: ~" received signal SIGINT, Interrupt.\n"
+GDB: ~"0x00007ffff731a081 in __GI___libc_read (fd=0, buf=0x602260, nbytes=4096) at ../sysdeps/unix/sysv/linux/read.c:27\n"
+GDB: ~"27\tin ../sysdeps/unix/sysv/linux/read.c\n"
+GDB: *stopped,reason="signal-received",signal-name="SIGINT",signal-meaning="Interrupt",frame={addr="0x00007ffff731a081",func="__GI___libc_read",args=[{name="fd",value="0"},{name="buf",value="0x602260"},{name="nbytes",value="4096"}],file="../sysdeps/unix/sysv/linux/read.c",fullname="/build/glibc-OTsEL5/glibc-2.27/io/../sysdeps/unix/sysv/linux/read.c",line="27"},thread-id="1",stopped-threads="all",core="7"
+44-stack-list-frames 0 50
+
+GDB: 44^done,stack=[frame={level="0",addr="0x00007ffff731a081",func="__GI___libc_read",file="../sysdeps/unix/sysv/linux/read.c",fullname="/build/glibc-OTsEL5/glibc-2.27/io/../sysdeps/unix/sysv/linux/read.c",line="27"},frame={level="1",addr="0x00007ffff7297148",func="_IO_new_file_underflow",file="fileops.c",fullname="/build/glibc-OTsEL5/glibc-2.27/libio/fileops.c",line="531"},frame={level="2",addr="0x00007ffff72983f2",func="__GI__IO_default_uflow",file="genops.c",fullname="/build/glibc-OTsEL5/glibc-2.27/libio/genops.c",line="380"},frame={level="3",addr="0x00007ffff7999f3d",func="get_string",from="target:/usr/lib/libcs50.so.10"},frame={level="4",addr="0x000000000040067e",func="main",file="caesar.c",fullname="/home/ubuntu/caesar.c",line="7"}]
+45-stack-list-arguments --simple-values 0 50
+
+GDB: 45^done,stack-args=[frame={level="0",args=[{name="fd",type="int",value="0"},{name="buf",type="void *",value="0x602260"},{name="nbytes",type="size_t",value="4096"}]},frame={level="1",args=[{name="fp",type="_IO_FILE *",value="0x7ffff75f5a00 <_IO_2_1_stdin_>"}]},frame={level="2",args=[{name="fp",type="_IO_FILE *",value="0x7ffff75f5a00 <_IO_2_1_stdin_>"}]},frame={level="3",args=[]},frame={level="4",args=[{name="argc",type="int",value="1"},{name="argv",type="string *",value="0x7fffffffe738"}]}]
+46-var-update --all-values *
+
+GDB: 46^done,changelist=[]
+-stack-select-frame 0
+
+SENDING: Content-Length:2183
+
+{"err":"signal","signal":{"name":"SIGINT","text":"Interrupt"},"thread":"1","frames":[{"level":"0","addr":"0x00007ffff731a081","func":"__GI___libc_read","file":"../sysdeps/unix/sysv/linux/read.c","fullname":"/build/glibc-OTsEL5/glibc-2.27/io/../sysdeps/unix/sysv/linux/read.c","line":"27","exists":false,"args":[{"name":"nbytes","type":"size_t","value":"4096","objname":"var10","numchild":"0"},{"name":"buf","type":"void *","value":"0x602260","address":6300256,"objname":"var11","numchild":"0"},{"name":"fd","type":"int","value":"0","objname":"var12","numchild":"0"}],"locals":[{"name":"sc_ret","type":"long","value":"<optimized out>","objname":"var8","numchild":"0"},{"name":"resultvar","type":"unsigned long","value":"18446744073709551104","objname":"var9","numchild":"0"}]},{"level":"1","addr":"0x00007ffff7297148","func":"_IO_new_file_underflow","file":"fileops.c","fullname":"/build/glibc-OTsEL5/glibc-2.27/libio/fileops.c","line":"531","exists":false,"args":[{"name":"fp","type":"_IO_FILE *","value":"0x7ffff75f5a00 <_IO_2_1_stdin_>","address":140737343609344}],"locals":[{"name":"fp","type":"_IO_FILE *","value":"0x7ffff75f5a00 <_IO_2_1_stdin_>","address":140737343609344}]},{"level":"2","addr":"0x00007ffff72983f2","func":"__GI__IO_default_uflow","file":"genops.c","fullname":"/build/glibc-OTsEL5/glibc-2.27/libio/genops.c","line":"380","exists":false,"args":[{"name":"fp","type":"_IO_FILE *","value":"0x7ffff75f5a00 <_IO_2_1_stdin_>","address":140737343609344}],"locals":[{"name":"fp","type":"_IO_FILE *","value":"0x7ffff75f5a00 <_IO_2_1_stdin_>","address":140737343609344}]},{"level":"3","addr":"0x00007ffff7999f3d","func":"get_string","from":"target:/usr/lib/libcs50.so.10","exists":false,"args":[],"locals":[]},{"level":"4","addr":"0x000000000040067e","func":"main","file":"caesar.c","fullname":"/home/ubuntu/caesar.c","line":"7","exists":true,"args":[{"name":"fp","type":"_IO_FILE *","value":"0x7ffff75f5a00 <_IO_2_1_stdin_>","address":140737343609344},{"name":"fp","type":"_IO_FILE *","value":"0x7ffff75f5a00 <_IO_2_1_stdin_>","address":140737343609344}],"locals":[{"name":"fp","type":"_IO_FILE *","value":"0x7ffff75f5a00 <_IO_2_1_stdin_>","address":140737343609344}]}]}
+GDB: ^done
+PLUGIN: Content-Length:56
+
+{"exp":"argv[]","f":4,"t":"1","command":"eval","_id":22}
+47-data-evaluate-expression --thread 1 --frame 4 "argv[]"
+
+GDB: 47^error,msg="A syntax error in expression, near `]'."
+SENDING: Content-Length:97
+
+{"_seq":"47","state":"error","status":{"msg":"A syntax error in expression, near `]'."},"_id":22}
+PLUGIN: Content-Length:57
+
+{"exp":"argv[1]","f":4,"t":"1","command":"eval","_id":23}
+48-data-evaluate-expression --thread 1 --frame 4 "argv[1]"
+
+PLUGIN: Content-Length:56
+
+{"exp":"argv[]","f":4,"t":"1","command":"eval","_id":24}Content-Length:57
+
+{"exp":"argv[1]","f":4,"t":"1","command":"eval","_id":25}
+49-data-evaluate-expression --thread 1 --frame 4 "argv[]"
+
+PLUGIN: Content-Length:56
+
+{"exp":"argv[]","f":4,"t":"1","command":"eval","_id":26}
+50-data-evaluate-expression --thread 1 --frame 4 "argv[1]"
+
+PLUGIN: Content-Length:57
+
+{"exp":"argv[1]","f":4,"t":"1","command":"eval","_id":27}
+51-data-evaluate-expression --thread 1 --frame 4 "argv[]"
+
+GDB: 48^done,value="0x0"
+SENDING: Content-Length:62
+
+{"_seq":"48","state":"done","status":{"value":"0x0"},"_id":23}
+52-data-evaluate-expression --thread 1 --frame 4 "argv[1]"
+
+GDB: 49^error,msg="A syntax error in expression, near `]'."
+SENDING: Content-Length:97
+
+{"_seq":"49","state":"error","status":{"msg":"A syntax error in expression, near `]'."},"_id":24}
+GDB: 50^done,value="0x0"
+SENDING: Content-Length:62
+
+{"_seq":"50","state":"done","status":{"value":"0x0"},"_id":25}
+GDB: 51^error,msg="A syntax error in expression, near `]'."
+SENDING: Content-Length:97
+
+{"_seq":"51","state":"error","status":{"msg":"A syntax error in expression, near `]'."},"_id":26}
+GDB: 52^done,value="0x0"
+SENDING: Content-Length:62
+
+{"_seq":"52","state":"done","status":{"value":"0x0"},"_id":27}
+PLUGIN: Content-Length:57
+
+{"exp":"include","f":4,"t":"1","command":"eval","_id":28}
+53-data-evaluate-expression --thread 1 --frame 4 "include"
+
+GDB: 53^error,msg="No symbol \"include\" in current context."
+SENDING: Content-Length:99
+
+{"_seq":"53","state":"error","status":{"msg":"No symbol \"include\" in current context."},"_id":28}
+PLUGIN: Content-Length:228
+
+{"path":"/caesar.c","line":14,"column":4,"text":"caesar.c","content":"    for (int i = 0, n = strlen(s); i < n; i++)","time":1590515464097,"enabled":true,"fullpath":"/home/ubuntu/caesar.c","command":"bp-clear","_id":29,"id":"1"}
+54-break-delete 1
+
+GDB: 54^done
+SENDING: Content-Length:49
+
+{"_seq":"54","state":"done","status":{},"_id":29}
+PLUGIN: Content-Length:227
+
+{"path":"/caesar.c","line":18,"column":12,"text":"caesar.c","content":"            printf(\"%c\", (int) s[i] + (int) argv[1]);","time":1590515524310,"enabled":true,"fullpath":"/home/ubuntu/caesar.c","command":"bp-set","_id":30}
+55-break-insert "/home/ubuntu/caesar.c:19"
+
+GDB: 55^done,bkpt={number="2",type="breakpoint",disp="keep",enabled="y",addr="0x000000000040070b",func="main",file="caesar.c",fullname="/home/ubuntu/caesar.c",line="19",thread-groups=["i1"],times="0",original-location="/home/ubuntu/caesar.c:19"}
+SENDING: Content-Length:307
+
+{"_seq":"55","state":"done","status":{"bkpt":{"number":"2","type":"breakpoint","disp":"keep","enabled":"y","addr":"0x000000000040070b","func":"main","file":"caesar.c","fullname":"/home/ubuntu/caesar.c","line":"19","thread-groups":["i1"],"times":"0","original-location":"/home/ubuntu/caesar.c:19"}},"_id":30}
+SIGINT
+
+
+Tue May 26 2020 17:52:33 GMT+0000 (Coordinated Universal Time)1-target-select remote localhost:15470
+
+GDB: =thread-group-added,id="i1"
+GDB: ~"Reading symbols from ./caesar..."
+GDB: ~"done.\n"
+GDB: =tsv-created,name="trace_timestamp",initial="0"\n
+GDB: =thread-group-started,id="i1",pid="1507"
+GDB: =thread-created,id="1",group-id="i1"
+GDB: ~"Reading /lib64/ld-linux-x86-64.so.2 from remote target...\n"
+GDB: &"warning: File transfers from remote targets can be slow. Use \"set sysroot\" to access files locally instead.\n"
+GDB: ~"Reading /lib64/ld-linux-x86-64.so.2 from remote target...\n"
+GDB: =library-loaded,id="/lib64/ld-linux-x86-64.so.2",target-name="/lib64/ld-linux-x86-64.so.2",host-name="target:/lib64/ld-linux-x86-64.so.2",symbols-loaded="0",thread-group="i1",ranges=[{from="0x00007ffff7dd5f10",to="0x00007ffff7df4b20"}]
+GDB: ~"Reading /lib64/ld-2.27.so from remote target...\n"
+GDB: ~"Reading /lib64/.debug/ld-2.27.so from remote target...\n"
+GDB: ~"0x00007ffff7dd6090 in ?? () from target:/lib64/ld-linux-x86-64.so.2\n"
+GDB: *stopped,frame={addr="0x00007ffff7dd6090",func="??",args=[],from="target:/lib64/ld-linux-x86-64.so.2"},thread-id="1",stopped-threads="all",core="2"
+GDB: 1^connected
+2set breakpoint condition-evaluation host
+
+GDB: &"set breakpoint condition-evaluation host\n"
+GDB: =cmd-param-changed,param="breakpoint condition-evaluation",value="host"
+GDB: 2^done
+PROXY: server connected
+SENDING: Content-Length:9
+
+"connect"
+PLUGIN: Content-Length:29
+
+{"command":"bp-list","_id":1}
+3-break-list 
+
+GDB: 3^done,BreakpointTable={nr_rows="0",nr_cols="6",hdr=[{width="7",alignment="-1",col_name="number",colhdr="Num"},{width="14",alignment="-1",col_name="type",colhdr="Type"},{width="4",alignment="-1",col_name="disp",colhdr="Disp"},{width="3",alignment="-1",col_name="enabled",colhdr="Enb"},{width="10",alignment="-1",col_name="addr",colhdr="Address"},{width="40",alignment="2",col_name="what",colhdr="What"}],body=[]}
+SENDING: Content-Length:510
+
+{"_seq":"3","state":"done","status":{"BreakpointTable":{"nr_rows":"0","nr_cols":"6","hdr":[{"width":"7","alignment":"-1","col_name":"number","colhdr":"Num"},{"width":"14","alignment":"-1","col_name":"type","colhdr":"Type"},{"width":"4","alignment":"-1","col_name":"disp","colhdr":"Disp"},{"width":"3","alignment":"-1","col_name":"enabled","colhdr":"Enb"},{"width":"10","alignment":"-1","col_name":"addr","colhdr":"Address"},{"width":"40","alignment":"2","col_name":"what","colhdr":"What"}],"body":[]}},"_id":1}
+PLUGIN: Content-Length:179
+
+{"path":"/buggy2.c","line":4,"column":0,"text":"buggy2.c","content":"{","time":1588713985015,"enabled":true,"fullpath":"/home/ubuntu/buggy2.c","command":"bp-set","_id":2,"id":"1"}
+4-break-insert "/home/ubuntu/buggy2.c:5"
+
+GDB: 4^error,msg="No source file named /home/ubuntu/buggy2.c."
+SENDING: Content-Length:99
+
+{"_seq":"4","state":"error","status":{"msg":"No source file named /home/ubuntu/buggy2.c."},"_id":2}
+PLUGIN: Content-Length:235
+
+{"path":"/caesar.c","line":18,"column":12,"text":"caesar.c","content":"            printf(\"%c\", (int) s[i] + (int) argv[1]);","time":1590515524310,"enabled":true,"fullpath":"/home/ubuntu/caesar.c","command":"bp-set","_id":3,"id":"2"}
+5-break-insert "/home/ubuntu/caesar.c:19"
+
+GDB: 5^done,bkpt={number="1",type="breakpoint",disp="keep",enabled="y",addr="0x000000000040070b",func="main",file="caesar.c",fullname="/home/ubuntu/caesar.c",line="19",thread-groups=["i1"],times="0",original-location="/home/ubuntu/caesar.c:19"}
+SENDING: Content-Length:305
+
+{"_seq":"5","state":"done","status":{"bkpt":{"number":"1","type":"breakpoint","disp":"keep","enabled":"y","addr":"0x000000000040070b","func":"main","file":"caesar.c","fullname":"/home/ubuntu/caesar.c","line":"19","thread-groups":["i1"],"times":"0","original-location":"/home/ubuntu/caesar.c:19"}},"_id":3}
+PLUGIN: Content-Length:53
+
+{"exp":"argv[]","f":0,"t":1,"command":"eval","_id":4}
+6-data-evaluate-expression --thread 1 --frame 0 "argv[]"
+
+PLUGIN: Content-Length:54
+
+{"exp":"argv[1]","f":0,"t":1,"command":"eval","_id":5}Content-Length:30
+
+{"command":"continue","_id":6}
+7-data-evaluate-expression --thread 1 --frame 0 "argv[1]"
+
+GDB: 6^error,msg="No symbol \"argv\" in current context."
+SENDING: Content-Length:94
+
+{"_seq":"6","state":"error","status":{"msg":"No symbol \"argv\" in current context."},"_id":4}
+8-exec-continue 
+
+GDB: 7^error,msg="No symbol \"argv\" in current context."
+SENDING: Content-Length:94
+
+{"_seq":"7","state":"error","status":{"msg":"No symbol \"argv\" in current context."},"_id":5}
+GDB: 8^running
+SENDING: Content-Length:50
+
+{"_seq":"8","state":"running","status":{},"_id":6}
+GDB: *running,thread-id="all"
+GDB: ~"Reading /lib/x86_64-linux-gnu/libcrypt.so.1 from remote target...\n"
+GDB: =library-loaded,id="/lib/x86_64-linux-gnu/libcrypt.so.1",target-name="/lib/x86_64-linux-gnu/libcrypt.so.1",host-name="target:/lib/x86_64-linux-gnu/libcrypt.so.1",symbols-loaded="0",thread-group="i1",ranges=[{from="0x00007ffff7b9dd50",to="0x00007ffff7ba38b8"}]
+GDB: ~"Reading /usr/lib/libcs50.so.10 from remote target...\n"
+GDB: =library-loaded,id="/usr/lib/libcs50.so.10",target-name="/usr/lib/libcs50.so.10",host-name="target:/usr/lib/libcs50.so.10",symbols-loaded="0",thread-group="i1",ranges=[{from="0x00007ffff7999c40",to="0x00007ffff799abb9"}]
+GDB: ~"Reading /lib/x86_64-linux-gnu/libm.so.6 from remote target...\n"
+GDB: =library-loaded,id="/lib/x86_64-linux-gnu/libm.so.6",target-name="/lib/x86_64-linux-gnu/libm.so.6",host-name="target:/lib/x86_64-linux-gnu/libm.so.6",symbols-loaded="0",thread-group="i1",ranges=[{from="0x00007ffff7606a80",to="0x00007ffff76c52f5"}]
+GDB: ~"Reading /lib/x86_64-linux-gnu/libc.so.6 from remote target...\n"
+GDB: =library-loaded,id="/lib/x86_64-linux-gnu/libc.so.6",target-name="/lib/x86_64-linux-gnu/libc.so.6",host-name="target:/lib/x86_64-linux-gnu/libc.so.6",symbols-loaded="0",thread-group="i1",ranges=[{from="0x00007ffff722b2d0",to="0x00007ffff73a3c3c"}]
+GDB: ~"Reading /lib/x86_64-linux-gnu/libcrypt-2.27.so from remote target...\n"
+GDB: ~"Reading /lib/x86_64-linux-gnu/.debug/libcrypt-2.27.so from remote target...\n"
+GDB: ~"Reading /lib/x86_64-linux-gnu/libm-2.27.so from remote target...\n"
+GDB: ~"Reading /lib/x86_64-linux-gnu/.debug/libm-2.27.so from remote target...\n"
+GDB: ~"Reading /lib/x86_64-linux-gnu/libc-2.27.so from remote target...\n"
+GDB: ~"Reading /lib/x86_64-linux-gnu/.debug/libc-2.27.so from remote target...\n"
+
+Child exited with status 1
+
+GDB: ~"[Inferior 1 (process 1507) exited with code 01]\n"
+GDB: =thread-group-exited,id="i1",exit-code="01"
+GDB: *stopped,reason="exited",exit-code="01"
+GDB server terminated with code 0 and signal null
+
+
+Tue May 26 2020 17:52:58 GMT+0000 (Coordinated Universal Time)1-target-select remote localhost:15470
+
+GDB: =thread-group-added,id="i1"
+GDB: ~"Reading symbols from ./caesar..."
+GDB: ~"done.\n"
+GDB: =tsv-created,name="trace_timestamp",initial="0"\n
+GDB: =thread-group-started,id="i1",pid="1628"
+GDB: =thread-created,id="1",group-id="i1"
+GDB: ~"Reading /lib64/ld-linux-x86-64.so.2 from remote target...\n"
+GDB: &"warning: File transfers from remote targets can be slow. Use \"set sysroot\" to access files locally instead.\n"
+GDB: ~"Reading /lib64/ld-linux-x86-64.so.2 from remote target...\n"
+GDB: =library-loaded,id="/lib64/ld-linux-x86-64.so.2",target-name="/lib64/ld-linux-x86-64.so.2",host-name="target:/lib64/ld-linux-x86-64.so.2",symbols-loaded="0",thread-group="i1",ranges=[{from="0x00007ffff7dd5f10",to="0x00007ffff7df4b20"}]
+GDB: ~"Reading /lib64/ld-2.27.so from remote target...\n"
+GDB: ~"Reading /lib64/.debug/ld-2.27.so from remote target...\n"
+GDB: ~"0x00007ffff7dd6090 in ?? () from target:/lib64/ld-linux-x86-64.so.2\n"
+GDB: *stopped,frame={addr="0x00007ffff7dd6090",func="??",args=[],from="target:/lib64/ld-linux-x86-64.so.2"},thread-id="1",stopped-threads="all",core="12"
+GDB: 1^connected
+2set breakpoint condition-evaluation host
+
+GDB: &"set breakpoint condition-evaluation host\n"
+GDB: =cmd-param-changed,param="breakpoint condition-evaluation",value="host"
+GDB: 2^done
+PROXY: server connected
+SENDING: Content-Length:9
+
+"connect"
+PLUGIN: Content-Length:29
+
+{"command":"bp-list","_id":1}
+3-break-list 
+
+GDB: 3^done,BreakpointTable={nr_rows="0",nr_cols="6",hdr=[{width="7",alignment="-1",col_name="number",colhdr="Num"},{width="14",alignment="-1",col_name="type",colhdr="Type"},{width="4",alignment="-1",col_name="disp",colhdr="Disp"},{width="3",alignment="-1",col_name="enabled",colhdr="Enb"},{width="10",alignment="-1",col_name="addr",colhdr="Address"},{width="40",alignment="2",col_name="what",colhdr="What"}],body=[]}
+SENDING: Content-Length:510
+
+{"_seq":"3","state":"done","status":{"BreakpointTable":{"nr_rows":"0","nr_cols":"6","hdr":[{"width":"7","alignment":"-1","col_name":"number","colhdr":"Num"},{"width":"14","alignment":"-1","col_name":"type","colhdr":"Type"},{"width":"4","alignment":"-1","col_name":"disp","colhdr":"Disp"},{"width":"3","alignment":"-1","col_name":"enabled","colhdr":"Enb"},{"width":"10","alignment":"-1","col_name":"addr","colhdr":"Address"},{"width":"40","alignment":"2","col_name":"what","colhdr":"What"}],"body":[]}},"_id":1}
+PLUGIN: Content-Length:179
+
+{"path":"/buggy2.c","line":4,"column":0,"text":"buggy2.c","content":"{","time":1588713985015,"enabled":true,"fullpath":"/home/ubuntu/buggy2.c","command":"bp-set","_id":2,"id":"1"}
+4-break-insert "/home/ubuntu/buggy2.c:5"
+
+GDB: 4^error,msg="No source file named /home/ubuntu/buggy2.c."
+SENDING: Content-Length:99
+
+{"_seq":"4","state":"error","status":{"msg":"No source file named /home/ubuntu/buggy2.c."},"_id":2}
+PLUGIN: Content-Length:235
+
+{"path":"/caesar.c","line":18,"column":12,"text":"caesar.c","content":"            printf(\"%c\", (int) s[i] + (int) argv[1]);","time":1590515524310,"enabled":true,"fullpath":"/home/ubuntu/caesar.c","command":"bp-set","_id":3,"id":"1"}
+5-break-insert "/home/ubuntu/caesar.c:19"
+
+GDB: 5^done,bkpt={number="1",type="breakpoint",disp="keep",enabled="y",addr="0x000000000040070b",func="main",file="caesar.c",fullname="/home/ubuntu/caesar.c",line="19",thread-groups=["i1"],times="0",original-location="/home/ubuntu/caesar.c:19"}
+SENDING: Content-Length:305
+
+{"_seq":"5","state":"done","status":{"bkpt":{"number":"1","type":"breakpoint","disp":"keep","enabled":"y","addr":"0x000000000040070b","func":"main","file":"caesar.c","fullname":"/home/ubuntu/caesar.c","line":"19","thread-groups":["i1"],"times":"0","original-location":"/home/ubuntu/caesar.c:19"}},"_id":3}
+PLUGIN: Content-Length:53
+
+{"exp":"argv[]","f":0,"t":1,"command":"eval","_id":4}
+6-data-evaluate-expression --thread 1 --frame 0 "argv[]"
+
+PLUGIN: Content-Length:54
+
+{"exp":"argv[1]","f":0,"t":1,"command":"eval","_id":5}Content-Length:30
+
+{"command":"continue","_id":6}
+7-data-evaluate-expression --thread 1 --frame 0 "argv[1]"
+
+GDB: 6^error,msg="No symbol \"argv\" in current context."
+SENDING: Content-Length:94
+
+{"_seq":"6","state":"error","status":{"msg":"No symbol \"argv\" in current context."},"_id":4}
+8-exec-continue 
+
+GDB: 7^error,msg="No symbol \"argv\" in current context."
+SENDING: Content-Length:94
+
+{"_seq":"7","state":"error","status":{"msg":"No symbol \"argv\" in current context."},"_id":5}
+GDB: 8^running
+SENDING: Content-Length:50
+
+{"_seq":"8","state":"running","status":{},"_id":6}
+GDB: *running,thread-id="all"
+GDB: ~"Reading /lib/x86_64-linux-gnu/libcrypt.so.1 from remote target...\n"
+GDB: =library-loaded,id="/lib/x86_64-linux-gnu/libcrypt.so.1",target-name="/lib/x86_64-linux-gnu/libcrypt.so.1",host-name="target:/lib/x86_64-linux-gnu/libcrypt.so.1",symbols-loaded="0",thread-group="i1",ranges=[{from="0x00007ffff7b9dd50",to="0x00007ffff7ba38b8"}]
+GDB: ~"Reading /usr/lib/libcs50.so.10 from remote target...\n"
+GDB: =library-loaded,id="/usr/lib/libcs50.so.10",target-name="/usr/lib/libcs50.so.10",host-name="target:/usr/lib/libcs50.so.10",symbols-loaded="0",thread-group="i1",ranges=[{from="0x00007ffff7999c40",to="0x00007ffff799abb9"}]
+GDB: ~"Reading /lib/x86_64-linux-gnu/libm.so.6 from remote target...\n"
+GDB: =library-loaded,id="/lib/x86_64-linux-gnu/libm.so.6",target-name="/lib/x86_64-linux-gnu/libm.so.6",host-name="target:/lib/x86_64-linux-gnu/libm.so.6",symbols-loaded="0",thread-group="i1",ranges=[{from="0x00007ffff7606a80",to="0x00007ffff76c52f5"}]
+GDB: ~"Reading /lib/x86_64-linux-gnu/libc.so.6 from remote target...\n"
+GDB: =library-loaded,id="/lib/x86_64-linux-gnu/libc.so.6",target-name="/lib/x86_64-linux-gnu/libc.so.6",host-name="target:/lib/x86_64-linux-gnu/libc.so.6",symbols-loaded="0",thread-group="i1",ranges=[{from="0x00007ffff722b2d0",to="0x00007ffff73a3c3c"}]
+GDB: ~"Reading /lib/x86_64-linux-gnu/libcrypt-2.27.so from remote target...\n"
+GDB: ~"Reading /lib/x86_64-linux-gnu/.debug/libcrypt-2.27.so from remote target...\n"
+GDB: ~"Reading /lib/x86_64-linux-gnu/libm-2.27.so from remote target...\n"
+GDB: ~"Reading /lib/x86_64-linux-gnu/.debug/libm-2.27.so from remote target...\n"
+GDB: ~"Reading /lib/x86_64-linux-gnu/libc-2.27.so from remote target...\n"
+GDB: ~"Reading /lib/x86_64-linux-gnu/.debug/libc-2.27.so from remote target...\n"
+GDB: =breakpoint-modified,bkpt={number="1",type="breakpoint",disp="keep",enabled="y",addr="0x000000000040070b",func="main",file="caesar.c",fullname="/home/ubuntu/caesar.c",line="19",thread-groups=["i1"],times="1",original-location="/home/ubuntu/caesar.c:19"}
+GDB: ~"\n"
+GDB: ~"Breakpoint 1, main (argc=2, argv=0x7fffffffe728) at caesar.c:19\n"
+GDB: ~"19\t            printf(\"%c\", (int) s[i] + (int) argv[1]);\n"
+GDB: *stopped,reason="breakpoint-hit",disp="keep",bkptno="1",frame={addr="0x000000000040070b",func="main",args=[{name="argc",value="2"},{name="argv",value="0x7fffffffe728"}],file="caesar.c",fullname="/home/ubuntu/caesar.c",line="19"},thread-id="1",stopped-threads="all",core="12"
+9-stack-list-frames 0 50
+
+GDB: 9^done,stack=[frame={level="0",addr="0x000000000040070b",func="main",file="caesar.c",fullname="/home/ubuntu/caesar.c",line="19"}]
+10-stack-list-arguments --simple-values 0 50
+
+GDB: 10^done,stack-args=[frame={level="0",args=[{name="argc",type="int",value="2"},{name="argv",type="string *",value="0x7fffffffe728"}]}]
+11-stack-list-locals --thread 1 --frame 0 --simple-values
+
+GDB: 11^done,locals=[{name="i",type="int",value="0"},{name="n",type="int",value="5"},{name="s",type="string",value="0x603270 \"hello\""}]
+12-var-update --all-values *
+
+GDB: 12^done,changelist=[]
+13-var-create - * s
+
+GDB: 13^done,name="var1",numchild="1",value="0x603270 \"hello\"",type="string",thread-id="1",has_more="0"
+14-var-create - * n
+
+GDB: 14^done,name="var2",numchild="0",value="5",type="int",thread-id="1",has_more="0"
+15-var-create - * i
+
+GDB: 15^done,name="var3",numchild="0",value="0",type="int",thread-id="1",has_more="0"
+16-var-create - * argv
+
+GDB: 16^done,name="var4",numchild="1",value="0x7fffffffe728",type="string *",thread-id="1",has_more="0"
+17-var-create - * argc
+
+GDB: 17^done,name="var5",numchild="0",value="2",type="int",thread-id="1",has_more="0"
+-stack-select-frame 0
+
+SENDING: Content-Length:600
+
+{"thread":"1","frames":[{"level":"0","addr":"0x000000000040070b","func":"main","file":"caesar.c","fullname":"/home/ubuntu/caesar.c","line":"19","exists":true,"args":[{"name":"argc","type":"int","value":"2","objname":"var5","numchild":"0"},{"name":"argv","type":"string *","value":"0x7fffffffe728","address":140737488348968,"objname":"var4","numchild":"1"}],"locals":[{"name":"i","type":"int","value":"0","objname":"var3","numchild":"0"},{"name":"n","type":"int","value":"5","objname":"var2","numchild":"0"},{"name":"s","type":"string","value":"0x603270 \"hello\"","objname":"var1","numchild":"1"}]}]}
+GDB: ^done
+PLUGIN: Content-Length:53
+
+{"exp":"argv[]","f":0,"t":1,"command":"eval","_id":7}
+18-data-evaluate-expression --thread 1 --frame 0 "argv[]"
+
+GDB: 18^error,msg="A syntax error in expression, near `]'."
+SENDING: Content-Length:96
+
+{"_seq":"18","state":"error","status":{"msg":"A syntax error in expression, near `]'."},"_id":7}
+PLUGIN: Content-Length:54
+
+{"exp":"argv[1]","f":0,"t":1,"command":"eval","_id":8}
+19-data-evaluate-expression --thread 1 --frame 0 "argv[1]"
+
+PLUGIN: Content-Length:55
+
+{"exp":"argv[]","f":0,"t":"1","command":"eval","_id":9}
+20-data-evaluate-expression --thread 1 --frame 0 "argv[]"
+
+PLUGIN: Content-Length:57
+
+{"exp":"argv[1]","f":0,"t":"1","command":"eval","_id":10}
+21-data-evaluate-expression --thread 1 --frame 0 "argv[1]"
+
+GDB: 19^done,value="0x7fffffffea31 \"5\""
+SENDING: Content-Length:78
+
+{"_seq":"19","state":"done","status":{"value":"0x7fffffffea31 \"5\""},"_id":8}
+GDB: 20^error,msg="A syntax error in expression, near `]'."
+SENDING: Content-Length:96
+
+{"_seq":"20","state":"error","status":{"msg":"A syntax error in expression, near `]'."},"_id":9}
+GDB: 21^done,value="0x7fffffffea31 \"5\""
+SENDING: Content-Length:79
+
+{"_seq":"21","state":"done","status":{"value":"0x7fffffffea31 \"5\""},"_id":10}
+PLUGIN: Content-Length:31
+
+{"command":"continue","_id":11}
+22-exec-continue 
+
+GDB: 22^running
+SENDING: Content-Length:52
+
+{"_seq":"22","state":"running","status":{},"_id":11}
+GDB: *running,thread-id="all"
+GDB: =breakpoint-modified,bkpt={number="1",type="breakpoint",disp="keep",enabled="y",addr="0x000000000040070b",func="main",file="caesar.c",fullname="/home/ubuntu/caesar.c",line="19",thread-groups=["i1"],times="2",original-location="/home/ubuntu/caesar.c:19"}
+GDB: ~"\n"
+GDB: ~"Breakpoint 1, main (argc=2, argv=0x7fffffffe728) at caesar.c:19\n"
+GDB: ~"19\t            printf(\"%c\", (int) s[i] + (int) argv[1]);\n"
+GDB: *stopped,reason="breakpoint-hit",disp="keep",bkptno="1",frame={addr="0x000000000040070b",func="main",args=[{name="argc",value="2"},{name="argv",value="0x7fffffffe728"}],file="caesar.c",fullname="/home/ubuntu/caesar.c",line="19"},thread-id="1",stopped-threads="all",core="12"
+23-stack-list-frames 0 50
+
+GDB: 23^done,stack=[frame={level="0",addr="0x000000000040070b",func="main",file="caesar.c",fullname="/home/ubuntu/caesar.c",line="19"}]
+24-stack-list-arguments --simple-values 0 50
+
+GDB: 24^done,stack-args=[frame={level="0",args=[{name="argc",type="int",value="2"},{name="argv",type="string *",value="0x7fffffffe728"}]}]
+25-var-update --all-values *
+
+GDB: 25^done,changelist=[{name="var3",value="1",in_scope="true",type_changed="false",has_more="0"}]
+-stack-select-frame 0
+
+SENDING: Content-Length:600
+
+{"thread":"1","frames":[{"level":"0","addr":"0x000000000040070b","func":"main","file":"caesar.c","fullname":"/home/ubuntu/caesar.c","line":"19","exists":true,"args":[{"name":"argv","type":"string *","value":"0x7fffffffe728","address":140737488348968,"objname":"var4","numchild":"1"},{"name":"argc","type":"int","value":"2","objname":"var5","numchild":"0"}],"locals":[{"name":"s","type":"string","value":"0x603270 \"hello\"","objname":"var1","numchild":"1"},{"name":"n","type":"int","value":"5","objname":"var2","numchild":"0"},{"name":"i","type":"int","value":"1","objname":"var3","numchild":"0"}]}]}
+GDB: ^done
+PLUGIN: Content-Length:56
+
+{"exp":"argv[]","f":0,"t":"1","command":"eval","_id":12}
+26-data-evaluate-expression --thread 1 --frame 0 "argv[]"
+
+GDB: 26^error,msg="A syntax error in expression, near `]'."
+SENDING: Content-Length:97
+
+{"_seq":"26","state":"error","status":{"msg":"A syntax error in expression, near `]'."},"_id":12}
+PLUGIN: Content-Length:57
+
+{"exp":"argv[1]","f":0,"t":"1","command":"eval","_id":13}
+27-data-evaluate-expression --thread 1 --frame 0 "argv[1]"
+
+PLUGIN: Content-Length:56
+
+{"exp":"argv[]","f":0,"t":"1","command":"eval","_id":14}
+28-data-evaluate-expression --thread 1 --frame 0 "argv[]"
+
+PLUGIN: Content-Length:57
+
+{"exp":"argv[1]","f":0,"t":"1","command":"eval","_id":15}
+29-data-evaluate-expression --thread 1 --frame 0 "argv[1]"
+
+GDB: 27^done,value="0x7fffffffea31 \"5\""
+SENDING: Content-Length:79
+
+{"_seq":"27","state":"done","status":{"value":"0x7fffffffea31 \"5\""},"_id":13}
+GDB: 28^error,msg="A syntax error in expression, near `]'."
+SENDING: Content-Length:97
+
+{"_seq":"28","state":"error","status":{"msg":"A syntax error in expression, near `]'."},"_id":14}
+GDB: 29^done,value="0x7fffffffea31 \"5\""
+SENDING: Content-Length:79
+
+{"_seq":"29","state":"done","status":{"value":"0x7fffffffea31 \"5\""},"_id":15}
+PLUGIN: Content-Length:31
+
+{"command":"continue","_id":16}
+30-exec-continue 
+
+GDB: 30^running
+SENDING: Content-Length:52
+
+{"_seq":"30","state":"running","status":{},"_id":16}
+GDB: *running,thread-id="all"
+GDB: =breakpoint-modified,bkpt={number="1",type="breakpoint",disp="keep",enabled="y",addr="0x000000000040070b",func="main",file="caesar.c",fullname="/home/ubuntu/caesar.c",line="19",thread-groups=["i1"],times="3",original-location="/home/ubuntu/caesar.c:19"}
+GDB: ~"\n"
+GDB: ~"Breakpoint 1, main (argc=2, argv=0x7fffffffe728) at caesar.c:19\n"
+GDB: ~"19\t            printf(\"%c\", (int) s[i] + (int) argv[1]);\n"
+GDB: *stopped,reason="breakpoint-hit",disp="keep",bkptno="1",frame={addr="0x000000000040070b",func="main",args=[{name="argc",value="2"},{name="argv",value="0x7fffffffe728"}],file="caesar.c",fullname="/home/ubuntu/caesar.c",line="19"},thread-id="1",stopped-threads="all",core="12"
+31-stack-list-frames 0 50
+
+GDB: 31^done,stack=[frame={level="0",addr="0x000000000040070b",func="main",file="caesar.c",fullname="/home/ubuntu/caesar.c",line="19"}]
+32-stack-list-arguments --simple-values 0 50
+
+GDB: 32^done,stack-args=[frame={level="0",args=[{name="argc",type="int",value="2"},{name="argv",type="string *",value="0x7fffffffe728"}]}]
+33-var-update --all-values *
+
+GDB: 33^done,changelist=[{name="var3",value="2",in_scope="true",type_changed="false",has_more="0"}]
+-stack-select-frame 0
+
+SENDING: Content-Length:600
+
+{"thread":"1","frames":[{"level":"0","addr":"0x000000000040070b","func":"main","file":"caesar.c","fullname":"/home/ubuntu/caesar.c","line":"19","exists":true,"args":[{"name":"argv","type":"string *","value":"0x7fffffffe728","address":140737488348968,"objname":"var4","numchild":"1"},{"name":"argc","type":"int","value":"2","objname":"var5","numchild":"0"}],"locals":[{"name":"s","type":"string","value":"0x603270 \"hello\"","objname":"var1","numchild":"1"},{"name":"n","type":"int","value":"5","objname":"var2","numchild":"0"},{"name":"i","type":"int","value":"2","objname":"var3","numchild":"0"}]}]}
+GDB: ^done
+PLUGIN: Content-Length:56
+
+{"exp":"argv[]","f":0,"t":"1","command":"eval","_id":17}
+34-data-evaluate-expression --thread 1 --frame 0 "argv[]"
+
+GDB: 34^error,msg="A syntax error in expression, near `]'."
+SENDING: Content-Length:97
+
+{"_seq":"34","state":"error","status":{"msg":"A syntax error in expression, near `]'."},"_id":17}
+PLUGIN: Content-Length:57
+
+{"exp":"argv[1]","f":0,"t":"1","command":"eval","_id":18}
+35-data-evaluate-expression --thread 1 --frame 0 "argv[1]"
+
+PLUGIN: Content-Length:56
+
+{"exp":"argv[]","f":0,"t":"1","command":"eval","_id":19}Content-Length:57
+
+{"exp":"argv[1]","f":0,"t":"1","command":"eval","_id":20}
+36-data-evaluate-expression --thread 1 --frame 0 "argv[]"
+
+GDB: 35^done,value="0x7fffffffea31 \"5\""
+SENDING: Content-Length:79
+
+{"_seq":"35","state":"done","status":{"value":"0x7fffffffea31 \"5\""},"_id":18}
+37-data-evaluate-expression --thread 1 --frame 0 "argv[1]"
+
+GDB: 36^error,msg="A syntax error in expression, near `]'."
+SENDING: Content-Length:97
+
+{"_seq":"36","state":"error","status":{"msg":"A syntax error in expression, near `]'."},"_id":19}
+GDB: 37^done,value="0x7fffffffea31 \"5\""
+SENDING: Content-Length:79
+
+{"_seq":"37","state":"done","status":{"value":"0x7fffffffea31 \"5\""},"_id":20}
+SIGINT
