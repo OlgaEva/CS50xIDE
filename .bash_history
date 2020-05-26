@@ -241,3 +241,8 @@ debug50 ./caesar 5
 make casting
 make casting
 ./casting
+git add .
+git commit -m "add casting.c"
+git push origin master
+make casting
+./casting
