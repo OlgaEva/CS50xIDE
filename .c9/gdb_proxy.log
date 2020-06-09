@@ -1338,3 +1338,1266 @@ SENDING: Content-Length:79
 
 {"_seq":"37","state":"done","status":{"value":"0x7fffffffea31 \"5\""},"_id":20}
 SIGINT
+
+
+Tue May 26 2020 18:44:54 GMT+0000 (Coordinated Universal Time)1-target-select remote localhost:15470
+
+GDB: =thread-group-added,id="i1"
+GDB: ~"Reading symbols from ./caesar..."
+GDB: ~"done.\n"
+GDB: =tsv-created,name="trace_timestamp",initial="0"\n
+GDB: =thread-group-started,id="i1",pid="5927"
+GDB: =thread-created,id="1",group-id="i1"
+GDB: ~"Reading /lib64/ld-linux-x86-64.so.2 from remote target...\n"
+GDB: &"warning: File transfers from remote targets can be slow. Use \"set sysroot\" to access files locally instead.\n"
+GDB: ~"Reading /lib64/ld-linux-x86-64.so.2 from remote target...\n"
+GDB: =library-loaded,id="/lib64/ld-linux-x86-64.so.2",target-name="/lib64/ld-linux-x86-64.so.2",host-name="target:/lib64/ld-linux-x86-64.so.2",symbols-loaded="0",thread-group="i1",ranges=[{from="0x00007ffff7dd5f10",to="0x00007ffff7df4b20"}]
+GDB: ~"Reading /lib64/ld-2.27.so from remote target...\n"
+GDB: ~"Reading /lib64/.debug/ld-2.27.so from remote target...\n"
+GDB: ~"0x00007ffff7dd6090 in ?? () from target:/lib64/ld-linux-x86-64.so.2\n"
+GDB: *stopped,frame={addr="0x00007ffff7dd6090",func="??",args=[],from="target:/lib64/ld-linux-x86-64.so.2"},thread-id="1",stopped-threads="all",core="11"
+GDB: 1^connected
+2set breakpoint condition-evaluation host
+
+GDB: &"set breakpoint condition-evaluation host\n"
+GDB: =cmd-param-changed,param="breakpoint condition-evaluation",value="host"
+GDB: 2^done
+PROXY: server connected
+SENDING: Content-Length:9
+
+"connect"
+PLUGIN: Content-Length:29
+
+{"command":"bp-list","_id":1}
+3-break-list 
+
+GDB: 3^done,BreakpointTable={nr_rows="0",nr_cols="6",hdr=[{width="7",alignment="-1",col_name="number",colhdr="Num"},{width="14",alignment="-1",col_name="type",colhdr="Type"},{width="4",alignment="-1",col_name="disp",colhdr="Disp"},{width="3",alignment="-1",col_name="enabled",colhdr="Enb"},{width="10",alignment="-1",col_name="addr",colhdr="Address"},{width="40",alignment="2",col_name="what",colhdr="What"}],body=[]}
+SENDING: Content-Length:510
+
+{"_seq":"3","state":"done","status":{"BreakpointTable":{"nr_rows":"0","nr_cols":"6","hdr":[{"width":"7","alignment":"-1","col_name":"number","colhdr":"Num"},{"width":"14","alignment":"-1","col_name":"type","colhdr":"Type"},{"width":"4","alignment":"-1","col_name":"disp","colhdr":"Disp"},{"width":"3","alignment":"-1","col_name":"enabled","colhdr":"Enb"},{"width":"10","alignment":"-1","col_name":"addr","colhdr":"Address"},{"width":"40","alignment":"2","col_name":"what","colhdr":"What"}],"body":[]}},"_id":1}
+PLUGIN: Content-Length:179
+
+{"path":"/buggy2.c","line":4,"column":0,"text":"buggy2.c","content":"{","time":1588713985015,"enabled":true,"fullpath":"/home/ubuntu/buggy2.c","command":"bp-set","_id":2,"id":"1"}
+4-break-insert "/home/ubuntu/buggy2.c:5"
+
+GDB: 4^error,msg="No source file named /home/ubuntu/buggy2.c."
+SENDING: Content-Length:99
+
+{"_seq":"4","state":"error","status":{"msg":"No source file named /home/ubuntu/buggy2.c."},"_id":2}
+PLUGIN: Content-Length:211
+
+{"path":"/caesar.c","line":19,"column":12,"text":"caesar.c","content":"            printf(\"%s\", argv[1] + 2);","time":1590518685318,"enabled":true,"fullpath":"/home/ubuntu/caesar.c","command":"bp-set","_id":3}
+5-break-insert "/home/ubuntu/caesar.c:20"
+
+GDB: 5^done,bkpt={number="1",type="breakpoint",disp="keep",enabled="y",addr="0x000000000040070b",func="main",file="caesar.c",fullname="/home/ubuntu/caesar.c",line="20",thread-groups=["i1"],times="0",original-location="/home/ubuntu/caesar.c:20"}
+SENDING: Content-Length:305
+
+{"_seq":"5","state":"done","status":{"bkpt":{"number":"1","type":"breakpoint","disp":"keep","enabled":"y","addr":"0x000000000040070b","func":"main","file":"caesar.c","fullname":"/home/ubuntu/caesar.c","line":"20","thread-groups":["i1"],"times":"0","original-location":"/home/ubuntu/caesar.c:20"}},"_id":3}
+PLUGIN: Content-Length:53
+
+{"exp":"argv[]","f":0,"t":1,"command":"eval","_id":4}
+6-data-evaluate-expression --thread 1 --frame 0 "argv[]"
+
+PLUGIN: Content-Length:54
+
+{"exp":"argv[1]","f":0,"t":1,"command":"eval","_id":5}Content-Length:30
+
+{"command":"continue","_id":6}
+7-data-evaluate-expression --thread 1 --frame 0 "argv[1]"
+
+GDB: 6^error,msg="No symbol \"argv\" in current context."
+SENDING: Content-Length:94
+
+{"_seq":"6","state":"error","status":{"msg":"No symbol \"argv\" in current context."},"_id":4}
+8-exec-continue 
+
+GDB: 7^error,msg="No symbol \"argv\" in current context."
+SENDING: Content-Length:94
+
+{"_seq":"7","state":"error","status":{"msg":"No symbol \"argv\" in current context."},"_id":5}
+GDB: 8^running
+SENDING: Content-Length:50
+
+{"_seq":"8","state":"running","status":{},"_id":6}
+GDB: *running,thread-id="all"
+GDB: ~"Reading /lib/x86_64-linux-gnu/libcrypt.so.1 from remote target...\n"
+GDB: =library-loaded,id="/lib/x86_64-linux-gnu/libcrypt.so.1",target-name="/lib/x86_64-linux-gnu/libcrypt.so.1",host-name="target:/lib/x86_64-linux-gnu/libcrypt.so.1",symbols-loaded="0",thread-group="i1",ranges=[{from="0x00007ffff7b9dd50",to="0x00007ffff7ba38b8"}]
+GDB: ~"Reading /usr/lib/libcs50.so.10 from remote target...\n"
+GDB: =library-loaded,id="/usr/lib/libcs50.so.10",target-name="/usr/lib/libcs50.so.10",host-name="target:/usr/lib/libcs50.so.10",symbols-loaded="0",thread-group="i1",ranges=[{from="0x00007ffff7999c40",to="0x00007ffff799abb9"}]
+GDB: ~"Reading /lib/x86_64-linux-gnu/libm.so.6 from remote target...\n"
+GDB: =library-loaded,id="/lib/x86_64-linux-gnu/libm.so.6",target-name="/lib/x86_64-linux-gnu/libm.so.6",host-name="target:/lib/x86_64-linux-gnu/libm.so.6",symbols-loaded="0",thread-group="i1",ranges=[{from="0x00007ffff7606a80",to="0x00007ffff76c52f5"}]
+GDB: ~"Reading /lib/x86_64-linux-gnu/libc.so.6 from remote target...\n"
+GDB: =library-loaded,id="/lib/x86_64-linux-gnu/libc.so.6",target-name="/lib/x86_64-linux-gnu/libc.so.6",host-name="target:/lib/x86_64-linux-gnu/libc.so.6",symbols-loaded="0",thread-group="i1",ranges=[{from="0x00007ffff722b2d0",to="0x00007ffff73a3c3c"}]
+GDB: ~"Reading /lib/x86_64-linux-gnu/libcrypt-2.27.so from remote target...\n"
+GDB: ~"Reading /lib/x86_64-linux-gnu/.debug/libcrypt-2.27.so from remote target...\n"
+GDB: ~"Reading /lib/x86_64-linux-gnu/libm-2.27.so from remote target...\n"
+GDB: ~"Reading /lib/x86_64-linux-gnu/.debug/libm-2.27.so from remote target...\n"
+GDB: ~"Reading /lib/x86_64-linux-gnu/libc-2.27.so from remote target...\n"
+GDB: ~"Reading /lib/x86_64-linux-gnu/.debug/libc-2.27.so from remote target...\n"
+GDB: =breakpoint-modified,bkpt={number="1",type="breakpoint",disp="keep",enabled="y",addr="0x000000000040070b",func="main",file="caesar.c",fullname="/home/ubuntu/caesar.c",line="20",thread-groups=["i1"],times="1",original-location="/home/ubuntu/caesar.c:20"}
+GDB: ~"\n"
+GDB: ~"Breakpoint 1, main (argc=2, argv=0x7fffffffe728) at caesar.c:20\n"
+GDB: ~"20\t            printf(\"%s\", argv[1] + 2);\n"
+GDB: *stopped,reason="breakpoint-hit",disp="keep",bkptno="1",frame={addr="0x000000000040070b",func="main",args=[{name="argc",value="2"},{name="argv",value="0x7fffffffe728"}],file="caesar.c",fullname="/home/ubuntu/caesar.c",line="20"},thread-id="1",stopped-threads="all",core="11"
+9-stack-list-frames 0 50
+
+GDB: 9^done,stack=[frame={level="0",addr="0x000000000040070b",func="main",file="caesar.c",fullname="/home/ubuntu/caesar.c",line="20"}]
+10-stack-list-arguments --simple-values 0 50
+
+GDB: 10^done,stack-args=[frame={level="0",args=[{name="argc",type="int",value="2"},{name="argv",type="string *",value="0x7fffffffe728"}]}]
+11-stack-list-locals --thread 1 --frame 0 --simple-values
+
+GDB: 11^done,locals=[{name="i",type="int",value="0"},{name="n",type="int",value="5"},{name="s",type="string",value="0x603270 \"hello\""}]
+12-var-update --all-values *
+
+GDB: 12^done,changelist=[]
+13-var-create - * s
+
+GDB: 13^done,name="var1",numchild="1",value="0x603270 \"hello\"",type="string",thread-id="1",has_more="0"
+14-var-create - * n
+
+GDB: 14^done,name="var2",numchild="0",value="5",type="int",thread-id="1",has_more="0"
+15-var-create - * i
+
+GDB: 15^done,name="var3",numchild="0",value="0",type="int",thread-id="1",has_more="0"
+16-var-create - * argv
+
+GDB: 16^done,name="var4",numchild="1",value="0x7fffffffe728",type="string *",thread-id="1",has_more="0"
+17-var-create - * argc
+
+GDB: 17^done,name="var5",numchild="0",value="2",type="int",thread-id="1",has_more="0"
+-stack-select-frame 0
+
+SENDING: Content-Length:600
+
+{"thread":"1","frames":[{"level":"0","addr":"0x000000000040070b","func":"main","file":"caesar.c","fullname":"/home/ubuntu/caesar.c","line":"20","exists":true,"args":[{"name":"argc","type":"int","value":"2","objname":"var5","numchild":"0"},{"name":"argv","type":"string *","value":"0x7fffffffe728","address":140737488348968,"objname":"var4","numchild":"1"}],"locals":[{"name":"i","type":"int","value":"0","objname":"var3","numchild":"0"},{"name":"n","type":"int","value":"5","objname":"var2","numchild":"0"},{"name":"s","type":"string","value":"0x603270 \"hello\"","objname":"var1","numchild":"1"}]}]}
+GDB: ^done
+PLUGIN: Content-Length:53
+
+{"exp":"argv[]","f":0,"t":1,"command":"eval","_id":7}
+18-data-evaluate-expression --thread 1 --frame 0 "argv[]"
+
+GDB: 18^error,msg="A syntax error in expression, near `]'."
+SENDING: Content-Length:96
+
+{"_seq":"18","state":"error","status":{"msg":"A syntax error in expression, near `]'."},"_id":7}
+PLUGIN: Content-Length:54
+
+{"exp":"argv[1]","f":0,"t":1,"command":"eval","_id":8}
+19-data-evaluate-expression --thread 1 --frame 0 "argv[1]"
+
+PLUGIN: Content-Length:55
+
+{"exp":"argv[]","f":0,"t":"1","command":"eval","_id":9}
+20-data-evaluate-expression --thread 1 --frame 0 "argv[]"
+
+PLUGIN: Content-Length:57
+
+{"exp":"argv[1]","f":0,"t":"1","command":"eval","_id":10}
+21-data-evaluate-expression --thread 1 --frame 0 "argv[1]"
+
+GDB: 19^done,value="0x7fffffffea31 \"5\""
+SENDING: Content-Length:78
+
+{"_seq":"19","state":"done","status":{"value":"0x7fffffffea31 \"5\""},"_id":8}
+GDB: 20^error,msg="A syntax error in expression, near `]'."
+SENDING: Content-Length:96
+
+{"_seq":"20","state":"error","status":{"msg":"A syntax error in expression, near `]'."},"_id":9}
+GDB: 21^done,value="0x7fffffffea31 \"5\""
+SENDING: Content-Length:79
+
+{"_seq":"21","state":"done","status":{"value":"0x7fffffffea31 \"5\""},"_id":10}
+PLUGIN: Content-Length:57
+
+{"exp":"argv[0]","f":0,"t":"1","command":"eval","_id":11}
+22-data-evaluate-expression --thread 1 --frame 0 "argv[0]"
+
+GDB: 22^done,value="0x7fffffffea28 \"./caesar\""
+SENDING: Content-Length:86
+
+{"_seq":"22","state":"done","status":{"value":"0x7fffffffea28 \"./caesar\""},"_id":11}
+PLUGIN: Content-Length:27
+
+{"command":"next","_id":12}
+23-exec-next 
+
+GDB: 23^running
+SENDING: Content-Length:52
+
+{"_seq":"23","state":"running","status":{},"_id":12}
+GDB: *running,thread-id="all"
+GDB: *stopped,reason="end-stepping-range",frame={addr="0x000000000040072e",func="main",args=[{name="argc",value="2"},{name="argv",value="0x7fffffffe728"}],file="caesar.c",fullname="/home/ubuntu/caesar.c",line="21"},thread-id="1",stopped-threads="all",core="11"
+24-stack-list-frames 0 50
+
+GDB: 24^done,stack=[frame={level="0",addr="0x000000000040072e",func="main",file="caesar.c",fullname="/home/ubuntu/caesar.c",line="21"}]
+25-stack-list-arguments --simple-values 0 50
+
+GDB: 25^done,stack-args=[frame={level="0",args=[{name="argc",type="int",value="2"},{name="argv",type="string *",value="0x7fffffffe728"}]}]
+26-stack-list-locals --thread 1 --frame 0 --simple-values
+
+GDB: 26^done,locals=[{name="i",type="int",value="0"},{name="n",type="int",value="5"},{name="s",type="string",value="0x603270 \"hello\""}]
+27-var-update --all-values *
+
+GDB: 27^done,changelist=[]
+28-var-create - * s
+
+GDB: 28^done,name="var6",numchild="1",value="0x603270 \"hello\"",type="string",thread-id="1",has_more="0"
+29-var-create - * n
+
+GDB: 29^done,name="var7",numchild="0",value="5",type="int",thread-id="1",has_more="0"
+30-var-create - * i
+
+GDB: 30^done,name="var8",numchild="0",value="0",type="int",thread-id="1",has_more="0"
+31-var-create - * argv
+
+GDB: 31^done,name="var9",numchild="1",value="0x7fffffffe728",type="string *",thread-id="1",has_more="0"
+32-var-create - * argc
+
+GDB: 32^done,name="var10",numchild="0",value="2",type="int",thread-id="1",has_more="0"
+-stack-select-frame 0
+
+SENDING: Content-Length:601
+
+{"thread":"1","frames":[{"level":"0","addr":"0x000000000040072e","func":"main","file":"caesar.c","fullname":"/home/ubuntu/caesar.c","line":"21","exists":true,"args":[{"name":"argc","type":"int","value":"2","objname":"var10","numchild":"0"},{"name":"argv","type":"string *","value":"0x7fffffffe728","address":140737488348968,"objname":"var9","numchild":"1"}],"locals":[{"name":"i","type":"int","value":"0","objname":"var8","numchild":"0"},{"name":"n","type":"int","value":"5","objname":"var7","numchild":"0"},{"name":"s","type":"string","value":"0x603270 \"hello\"","objname":"var6","numchild":"1"}]}]}
+GDB: ^done
+PLUGIN: Content-Length:56
+
+{"exp":"argv[]","f":0,"t":"1","command":"eval","_id":13}
+33-data-evaluate-expression --thread 1 --frame 0 "argv[]"
+
+GDB: 33^error,msg="A syntax error in expression, near `]'."
+SENDING: Content-Length:97
+
+{"_seq":"33","state":"error","status":{"msg":"A syntax error in expression, near `]'."},"_id":13}
+PLUGIN: Content-Length:57
+
+{"exp":"argv[1]","f":0,"t":"1","command":"eval","_id":14}
+34-data-evaluate-expression --thread 1 --frame 0 "argv[1]"
+
+PLUGIN: Content-Length:57
+
+{"exp":"argv[0]","f":0,"t":"1","command":"eval","_id":15}
+35-data-evaluate-expression --thread 1 --frame 0 "argv[0]"
+
+PLUGIN: Content-Length:56
+
+{"exp":"argv[]","f":0,"t":"1","command":"eval","_id":16}
+36-data-evaluate-expression --thread 1 --frame 0 "argv[]"
+
+PLUGIN: Content-Length:57
+
+{"exp":"argv[1]","f":0,"t":"1","command":"eval","_id":17}
+37-data-evaluate-expression --thread 1 --frame 0 "argv[1]"
+
+GDB: 34^done,value="0x7fffffffea31 \"5\""
+SENDING: Content-Length:79
+
+{"_seq":"34","state":"done","status":{"value":"0x7fffffffea31 \"5\""},"_id":14}
+PLUGIN: Content-Length:57
+
+{"exp":"argv[0]","f":0,"t":"1","command":"eval","_id":18}
+38-data-evaluate-expression --thread 1 --frame 0 "argv[0]"
+
+GDB: 35^done,value="0x7fffffffea28 \"./caesar\""
+SENDING: Content-Length:86
+
+{"_seq":"35","state":"done","status":{"value":"0x7fffffffea28 \"./caesar\""},"_id":15}
+GDB: 36^error,msg="A syntax error in expression, near `]'."
+SENDING: Content-Length:97
+
+{"_seq":"36","state":"error","status":{"msg":"A syntax error in expression, near `]'."},"_id":16}
+GDB: 37^done,value="0x7fffffffea31 \"5\""
+SENDING: Content-Length:79
+
+{"_seq":"37","state":"done","status":{"value":"0x7fffffffea31 \"5\""},"_id":17}
+GDB: 38^done,value="0x7fffffffea28 \"./caesar\""
+SENDING: Content-Length:86
+
+{"_seq":"38","state":"done","status":{"value":"0x7fffffffea28 \"./caesar\""},"_id":18}
+SIGINT
+
+
+Tue May 26 2020 19:09:21 GMT+0000 (Coordinated Universal Time)1-target-select remote localhost:15470
+
+GDB: =thread-group-added,id="i1"
+GDB: ~"Reading symbols from ./caesar..."
+GDB: ~"done.\n"
+GDB: =tsv-created,name="trace_timestamp",initial="0"\n
+GDB: =thread-group-started,id="i1",pid="7937"
+GDB: =thread-created,id="1",group-id="i1"
+GDB: ~"Reading /lib64/ld-linux-x86-64.so.2 from remote target...\n"
+GDB: &"warning: File transfers from remote targets can be slow. Use \"set sysroot\" to access files locally instead.\n"
+GDB: ~"Reading /lib64/ld-linux-x86-64.so.2 from remote target...\n"
+GDB: =library-loaded,id="/lib64/ld-linux-x86-64.so.2",target-name="/lib64/ld-linux-x86-64.so.2",host-name="target:/lib64/ld-linux-x86-64.so.2",symbols-loaded="0",thread-group="i1",ranges=[{from="0x00007ffff7dd5f10",to="0x00007ffff7df4b20"}]
+GDB: ~"Reading /lib64/ld-2.27.so from remote target...\n"
+GDB: ~"Reading /lib64/.debug/ld-2.27.so from remote target...\n"
+GDB: ~"0x00007ffff7dd6090 in ?? () from target:/lib64/ld-linux-x86-64.so.2\n"
+GDB: *stopped,frame={addr="0x00007ffff7dd6090",func="??",args=[],from="target:/lib64/ld-linux-x86-64.so.2"},thread-id="1",stopped-threads="all",core="5"
+GDB: 1^connected
+2set breakpoint condition-evaluation host
+
+GDB: &"set breakpoint condition-evaluation host\n"
+GDB: =cmd-param-changed,param="breakpoint condition-evaluation",value="host"
+GDB: 2^done
+PROXY: server connected
+SENDING: Content-Length:9
+
+"connect"
+PLUGIN: Content-Length:29
+
+{"command":"bp-list","_id":1}
+3-break-list 
+
+GDB: 3^done,BreakpointTable={nr_rows="0",nr_cols="6",hdr=[{width="7",alignment="-1",col_name="number",colhdr="Num"},{width="14",alignment="-1",col_name="type",colhdr="Type"},{width="4",alignment="-1",col_name="disp",colhdr="Disp"},{width="3",alignment="-1",col_name="enabled",colhdr="Enb"},{width="10",alignment="-1",col_name="addr",colhdr="Address"},{width="40",alignment="2",col_name="what",colhdr="What"}],body=[]}
+SENDING: Content-Length:510
+
+{"_seq":"3","state":"done","status":{"BreakpointTable":{"nr_rows":"0","nr_cols":"6","hdr":[{"width":"7","alignment":"-1","col_name":"number","colhdr":"Num"},{"width":"14","alignment":"-1","col_name":"type","colhdr":"Type"},{"width":"4","alignment":"-1","col_name":"disp","colhdr":"Disp"},{"width":"3","alignment":"-1","col_name":"enabled","colhdr":"Enb"},{"width":"10","alignment":"-1","col_name":"addr","colhdr":"Address"},{"width":"40","alignment":"2","col_name":"what","colhdr":"What"}],"body":[]}},"_id":1}
+PLUGIN: Content-Length:179
+
+{"path":"/buggy2.c","line":4,"column":0,"text":"buggy2.c","content":"{","time":1588713985015,"enabled":true,"fullpath":"/home/ubuntu/buggy2.c","command":"bp-set","_id":2,"id":"1"}
+4-break-insert "/home/ubuntu/buggy2.c:5"
+
+GDB: 4^error,msg="No source file named /home/ubuntu/buggy2.c."
+SENDING: Content-Length:99
+
+{"_seq":"4","state":"error","status":{"msg":"No source file named /home/ubuntu/buggy2.c."},"_id":2}
+PLUGIN: Content-Length:220
+
+{"path":"/caesar.c","line":19,"column":12,"text":"caesar.c","content":"            printf(\"%s\", argv[1] + 2);","time":1590518685318,"enabled":true,"fullpath":"/home/ubuntu/caesar.c","command":"bp-set","_id":3,"id":"1"}
+5-break-insert "/home/ubuntu/caesar.c:20"
+
+GDB: 5^done,bkpt={number="1",type="breakpoint",disp="keep",enabled="y",addr="0x000000000040070b",func="main",file="caesar.c",fullname="/home/ubuntu/caesar.c",line="20",thread-groups=["i1"],times="0",original-location="/home/ubuntu/caesar.c:20"}
+SENDING: Content-Length:305
+
+{"_seq":"5","state":"done","status":{"bkpt":{"number":"1","type":"breakpoint","disp":"keep","enabled":"y","addr":"0x000000000040070b","func":"main","file":"caesar.c","fullname":"/home/ubuntu/caesar.c","line":"20","thread-groups":["i1"],"times":"0","original-location":"/home/ubuntu/caesar.c:20"}},"_id":3}
+PLUGIN: Content-Length:53
+
+{"exp":"argv[]","f":0,"t":1,"command":"eval","_id":4}
+6-data-evaluate-expression --thread 1 --frame 0 "argv[]"
+
+GDB: 6^error,msg="No symbol \"argv\" in current context."
+SENDING: Content-Length:94
+
+{"_seq":"6","state":"error","status":{"msg":"No symbol \"argv\" in current context."},"_id":4}
+PLUGIN: Content-Length:54
+
+{"exp":"argv[1]","f":0,"t":1,"command":"eval","_id":5}
+7-data-evaluate-expression --thread 1 --frame 0 "argv[1]"
+
+PLUGIN: Content-Length:54
+
+{"exp":"argv[0]","f":0,"t":1,"command":"eval","_id":6}
+8-data-evaluate-expression --thread 1 --frame 0 "argv[0]"
+
+GDB: 7^error,msg="No symbol \"argv\" in current context."
+SENDING: Content-Length:94
+
+{"_seq":"7","state":"error","status":{"msg":"No symbol \"argv\" in current context."},"_id":5}
+GDB: 8^error,msg="No symbol \"argv\" in current context."
+SENDING: Content-Length:94
+
+{"_seq":"8","state":"error","status":{"msg":"No symbol \"argv\" in current context."},"_id":6}
+PLUGIN: Content-Length:30
+
+{"command":"continue","_id":7}
+9-exec-continue 
+
+GDB: 9^running
+SENDING: Content-Length:50
+
+{"_seq":"9","state":"running","status":{},"_id":7}
+GDB: *running,thread-id="all"
+GDB: ~"Reading /lib/x86_64-linux-gnu/libcrypt.so.1 from remote target...\n"
+GDB: =library-loaded,id="/lib/x86_64-linux-gnu/libcrypt.so.1",target-name="/lib/x86_64-linux-gnu/libcrypt.so.1",host-name="target:/lib/x86_64-linux-gnu/libcrypt.so.1",symbols-loaded="0",thread-group="i1",ranges=[{from="0x00007ffff7b9dd50",to="0x00007ffff7ba38b8"}]
+GDB: ~"Reading /usr/lib/libcs50.so.10 from remote target...\n"
+GDB: =library-loaded,id="/usr/lib/libcs50.so.10",target-name="/usr/lib/libcs50.so.10",host-name="target:/usr/lib/libcs50.so.10",symbols-loaded="0",thread-group="i1",ranges=[{from="0x00007ffff7999c40",to="0x00007ffff799abb9"}]
+GDB: ~"Reading /lib/x86_64-linux-gnu/libm.so.6 from remote target...\n"
+GDB: =library-loaded,id="/lib/x86_64-linux-gnu/libm.so.6",target-name="/lib/x86_64-linux-gnu/libm.so.6",host-name="target:/lib/x86_64-linux-gnu/libm.so.6",symbols-loaded="0",thread-group="i1",ranges=[{from="0x00007ffff7606a80",to="0x00007ffff76c52f5"}]
+GDB: ~"Reading /lib/x86_64-linux-gnu/libc.so.6 from remote target...\n"
+GDB: =library-loaded,id="/lib/x86_64-linux-gnu/libc.so.6",target-name="/lib/x86_64-linux-gnu/libc.so.6",host-name="target:/lib/x86_64-linux-gnu/libc.so.6",symbols-loaded="0",thread-group="i1",ranges=[{from="0x00007ffff722b2d0",to="0x00007ffff73a3c3c"}]
+GDB: ~"Reading /lib/x86_64-linux-gnu/libcrypt-2.27.so from remote target...\n"
+GDB: ~"Reading /lib/x86_64-linux-gnu/.debug/libcrypt-2.27.so from remote target...\n"
+GDB: ~"Reading /lib/x86_64-linux-gnu/libm-2.27.so from remote target...\n"
+GDB: ~"Reading /lib/x86_64-linux-gnu/.debug/libm-2.27.so from remote target...\n"
+GDB: ~"Reading /lib/x86_64-linux-gnu/libc-2.27.so from remote target...\n"
+GDB: ~"Reading /lib/x86_64-linux-gnu/.debug/libc-2.27.so from remote target...\n"
+GDB: =breakpoint-modified,bkpt={number="1",type="breakpoint",disp="keep",enabled="y",addr="0x000000000040070b",func="main",file="caesar.c",fullname="/home/ubuntu/caesar.c",line="20",thread-groups=["i1"],times="1",original-location="/home/ubuntu/caesar.c:20"}
+GDB: ~"\n"
+GDB: ~"Breakpoint 1, main (argc=2, argv=0x7fffffffe728) at caesar.c:20\n"
+GDB: ~"20\t            printf(\"%c\", (int) s[i] + (int) argv[1]);\n"
+GDB: *stopped,reason="breakpoint-hit",disp="keep",bkptno="1",frame={addr="0x000000000040070b",func="main",args=[{name="argc",value="2"},{name="argv",value="0x7fffffffe728"}],file="caesar.c",fullname="/home/ubuntu/caesar.c",line="20"},thread-id="1",stopped-threads="all",core="3"
+10-stack-list-frames 0 50
+
+GDB: 10^done,stack=[frame={level="0",addr="0x000000000040070b",func="main",file="caesar.c",fullname="/home/ubuntu/caesar.c",line="20"}]
+11-stack-list-arguments --simple-values 0 50
+
+GDB: 11^done,stack-args=[frame={level="0",args=[{name="argc",type="int",value="2"},{name="argv",type="string *",value="0x7fffffffe728"}]}]
+12-stack-list-locals --thread 1 --frame 0 --simple-values
+
+GDB: 12^done,locals=[{name="i",type="int",value="0"},{name="n",type="int",value="5"},{name="s",type="string",value="0x603270 \"hello\""}]
+13-var-update --all-values *
+
+GDB: 13^done,changelist=[]
+14-var-create - * s
+
+GDB: 14^done,name="var1",numchild="1",value="0x603270 \"hello\"",type="string",thread-id="1",has_more="0"
+15-var-create - * n
+
+GDB: 15^done,name="var2",numchild="0",value="5",type="int",thread-id="1",has_more="0"
+16-var-create - * i
+
+GDB: 16^done,name="var3",numchild="0",value="0",type="int",thread-id="1",has_more="0"
+17-var-create - * argv
+
+GDB: 17^done,name="var4",numchild="1",value="0x7fffffffe728",type="string *",thread-id="1",has_more="0"
+18-var-create - * argc
+
+GDB: 18^done,name="var5",numchild="0",value="2",type="int",thread-id="1",has_more="0"
+-stack-select-frame 0
+
+SENDING: Content-Length:600
+
+{"thread":"1","frames":[{"level":"0","addr":"0x000000000040070b","func":"main","file":"caesar.c","fullname":"/home/ubuntu/caesar.c","line":"20","exists":true,"args":[{"name":"argc","type":"int","value":"2","objname":"var5","numchild":"0"},{"name":"argv","type":"string *","value":"0x7fffffffe728","address":140737488348968,"objname":"var4","numchild":"1"}],"locals":[{"name":"i","type":"int","value":"0","objname":"var3","numchild":"0"},{"name":"n","type":"int","value":"5","objname":"var2","numchild":"0"},{"name":"s","type":"string","value":"0x603270 \"hello\"","objname":"var1","numchild":"1"}]}]}
+GDB: ^done
+PLUGIN: Content-Length:53
+
+{"exp":"argv[]","f":0,"t":1,"command":"eval","_id":8}
+19-data-evaluate-expression --thread 1 --frame 0 "argv[]"
+
+GDB: 19^error,msg="A syntax error in expression, near `]'."
+SENDING: Content-Length:96
+
+{"_seq":"19","state":"error","status":{"msg":"A syntax error in expression, near `]'."},"_id":8}
+PLUGIN: Content-Length:54
+
+{"exp":"argv[1]","f":0,"t":1,"command":"eval","_id":9}
+20-data-evaluate-expression --thread 1 --frame 0 "argv[1]"
+
+GDB: 20^done,value="0x7fffffffea31 \"1\""
+SENDING: Content-Length:78
+
+{"_seq":"20","state":"done","status":{"value":"0x7fffffffea31 \"1\""},"_id":9}
+PLUGIN: Content-Length:55
+
+{"exp":"argv[0]","f":0,"t":1,"command":"eval","_id":10}
+21-data-evaluate-expression --thread 1 --frame 0 "argv[0]"
+
+PLUGIN: Content-Length:56
+
+{"exp":"argv[]","f":0,"t":"1","command":"eval","_id":11}
+22-data-evaluate-expression --thread 1 --frame 0 "argv[]"
+
+PLUGIN: Content-Length:57
+
+{"exp":"argv[1]","f":0,"t":"1","command":"eval","_id":12}
+23-data-evaluate-expression --thread 1 --frame 0 "argv[1]"
+
+GDB: 21^done,value="0x7fffffffea28 \"./caesar\""
+SENDING: Content-Length:86
+
+{"_seq":"21","state":"done","status":{"value":"0x7fffffffea28 \"./caesar\""},"_id":10}
+GDB: 22^error,msg="A syntax error in expression, near `]'."
+SENDING: Content-Length:97
+
+{"_seq":"22","state":"error","status":{"msg":"A syntax error in expression, near `]'."},"_id":11}
+PLUGIN: Content-Length:57
+
+{"exp":"argv[0]","f":0,"t":"1","command":"eval","_id":13}
+24-data-evaluate-expression --thread 1 --frame 0 "argv[0]"
+
+GDB: 23^done,value="0x7fffffffea31 \"1\""
+SENDING: Content-Length:79
+
+{"_seq":"23","state":"done","status":{"value":"0x7fffffffea31 \"1\""},"_id":12}
+GDB: 24^done,value="0x7fffffffea28 \"./caesar\""
+SENDING: Content-Length:86
+
+{"_seq":"24","state":"done","status":{"value":"0x7fffffffea28 \"./caesar\""},"_id":13}
+PLUGIN: Content-Length:49
+
+{"name":"var4","command":"var-children","_id":14}
+25-var-list-children --simple-values var4
+
+GDB: 25^done,numchild="1",children=[child={name="var4.*argv",exp="*argv",numchild="1",value="0x7fffffffea28 \"./caesar\"",type="string",thread-id="1"}],has_more="0"
+SENDING: Content-Length:182
+
+{"_id":14,"children":[{"name":"var4.*argv","exp":"*argv","numchild":"1","value":"0x7fffffffea28 \"./caesar\"","type":"string","thread-id":"1","objname":"var4.*argv"}],"state":"done"}
+PLUGIN: Content-Length:55
+
+{"name":"var4.*argv","command":"var-children","_id":15}
+26-var-list-children --simple-values var4.*argv
+
+GDB: 26^done,numchild="1",children=[child={name="var4.*argv.**argv",exp="**argv",numchild="0",value="46 '.'",type="char",thread-id="1"}],has_more="0"
+SENDING: Content-Length:174
+
+{"_id":15,"children":[{"name":"var4.*argv.**argv","exp":"**argv","numchild":"0","value":"46 '.'","type":"char","thread-id":"1","objname":"var4.*argv.**argv"}],"state":"done"}
+PLUGIN: Content-Length:49
+
+{"name":"var1","command":"var-children","_id":16}
+27-var-list-children --simple-values var1
+
+GDB: 27^done,numchild="1",children=[child={name="var1.*s",exp="*s",numchild="0",value="104 'h'",type="char",thread-id="1"}],has_more="0"
+SENDING: Content-Length:151
+
+{"_id":16,"children":[{"name":"var1.*s","exp":"*s","numchild":"0","value":"104 'h'","type":"char","thread-id":"1","objname":"var1.*s"}],"state":"done"}
+PLUGIN: Content-Length:27
+
+{"command":"next","_id":17}
+28-exec-next 
+
+GDB: 28^running
+SENDING: Content-Length:52
+
+{"_seq":"28","state":"running","status":{},"_id":17}
+GDB: *running,thread-id="all"
+GDB: *stopped,reason="end-stepping-range",frame={addr="0x0000000000400739",func="main",args=[{name="argc",value="2"},{name="argv",value="0x7fffffffe728"}],file="caesar.c",fullname="/home/ubuntu/caesar.c",line="21"},thread-id="1",stopped-threads="all",core="6"
+29-stack-list-frames 0 50
+
+GDB: 29^done,stack=[frame={level="0",addr="0x0000000000400739",func="main",file="caesar.c",fullname="/home/ubuntu/caesar.c",line="21"}]
+30-stack-list-arguments --simple-values 0 50
+
+GDB: 30^done,stack-args=[frame={level="0",args=[{name="argc",type="int",value="2"},{name="argv",type="string *",value="0x7fffffffe728"}]}]
+31-stack-list-locals --thread 1 --frame 0 --simple-values
+
+GDB: 31^done,locals=[{name="i",type="int",value="0"},{name="n",type="int",value="5"},{name="s",type="string",value="0x603270 \"hello\""}]
+32-var-update --all-values *
+
+GDB: 32^done,changelist=[]
+33-var-create - * s
+
+GDB: 33^done,name="var6",numchild="1",value="0x603270 \"hello\"",type="string",thread-id="1",has_more="0"
+34-var-create - * n
+
+GDB: 34^done,name="var7",numchild="0",value="5",type="int",thread-id="1",has_more="0"
+35-var-create - * i
+
+GDB: 35^done,name="var8",numchild="0",value="0",type="int",thread-id="1",has_more="0"
+36-var-create - * argv
+
+GDB: 36^done,name="var9",numchild="1",value="0x7fffffffe728",type="string *",thread-id="1",has_more="0"
+37-var-create - * argc
+
+GDB: 37^done,name="var10",numchild="0",value="2",type="int",thread-id="1",has_more="0"
+-stack-select-frame 0
+
+SENDING: Content-Length:601
+
+{"thread":"1","frames":[{"level":"0","addr":"0x0000000000400739","func":"main","file":"caesar.c","fullname":"/home/ubuntu/caesar.c","line":"21","exists":true,"args":[{"name":"argc","type":"int","value":"2","objname":"var10","numchild":"0"},{"name":"argv","type":"string *","value":"0x7fffffffe728","address":140737488348968,"objname":"var9","numchild":"1"}],"locals":[{"name":"i","type":"int","value":"0","objname":"var8","numchild":"0"},{"name":"n","type":"int","value":"5","objname":"var7","numchild":"0"},{"name":"s","type":"string","value":"0x603270 \"hello\"","objname":"var6","numchild":"1"}]}]}
+GDB: ^done
+PLUGIN: Content-Length:56
+
+{"exp":"argv[]","f":0,"t":"1","command":"eval","_id":18}
+38-data-evaluate-expression --thread 1 --frame 0 "argv[]"
+
+GDB: 38^error,msg="A syntax error in expression, near `]'."
+SENDING: Content-Length:97
+
+{"_seq":"38","state":"error","status":{"msg":"A syntax error in expression, near `]'."},"_id":18}
+PLUGIN: Content-Length:57
+
+{"exp":"argv[1]","f":0,"t":"1","command":"eval","_id":19}
+39-data-evaluate-expression --thread 1 --frame 0 "argv[1]"
+
+PLUGIN: Content-Length:57
+
+{"exp":"argv[0]","f":0,"t":"1","command":"eval","_id":20}Content-Length:56
+
+{"exp":"argv[]","f":0,"t":"1","command":"eval","_id":21}
+40-data-evaluate-expression --thread 1 --frame 0 "argv[0]"
+
+PLUGIN: Content-Length:57
+
+{"exp":"argv[1]","f":0,"t":"1","command":"eval","_id":22}
+41-data-evaluate-expression --thread 1 --frame 0 "argv[]"
+
+PLUGIN: Content-Length:57
+
+{"exp":"argv[0]","f":0,"t":"1","command":"eval","_id":23}
+42-data-evaluate-expression --thread 1 --frame 0 "argv[1]"
+
+GDB: 39^done,value="0x7fffffffea31 \"1\""
+SENDING: Content-Length:79
+
+{"_seq":"39","state":"done","status":{"value":"0x7fffffffea31 \"1\""},"_id":19}
+43-data-evaluate-expression --thread 1 --frame 0 "argv[0]"
+
+GDB: 40^done,value="0x7fffffffea28 \"./caesar\""
+SENDING: Content-Length:86
+
+{"_seq":"40","state":"done","status":{"value":"0x7fffffffea28 \"./caesar\""},"_id":20}
+GDB: 41^error,msg="A syntax error in expression, near `]'."
+SENDING: Content-Length:97
+
+{"_seq":"41","state":"error","status":{"msg":"A syntax error in expression, near `]'."},"_id":21}
+GDB: 42^done,value="0x7fffffffea31 \"1\""
+SENDING: Content-Length:79
+
+{"_seq":"42","state":"done","status":{"value":"0x7fffffffea31 \"1\""},"_id":22}
+GDB: 43^done,value="0x7fffffffea28 \"./caesar\""
+SENDING: Content-Length:86
+
+{"_seq":"43","state":"done","status":{"value":"0x7fffffffea28 \"./caesar\""},"_id":23}
+PLUGIN: Content-Length:27
+
+{"command":"next","_id":24}
+44-exec-next 
+
+GDB: 44^running
+SENDING: Content-Length:52
+
+{"_seq":"44","state":"running","status":{},"_id":24}
+GDB: *running,thread-id="all"
+GDB: *stopped,reason="end-stepping-range",frame={addr="0x000000000040075e",func="main",args=[{name="argc",value="2"},{name="argv",value="0x7fffffffe728"}],file="caesar.c",fullname="/home/ubuntu/caesar.c",line="26"},thread-id="1",stopped-threads="all",core="12"
+45-stack-list-frames 0 50
+
+GDB: 45^done,stack=[frame={level="0",addr="0x000000000040075e",func="main",file="caesar.c",fullname="/home/ubuntu/caesar.c",line="26"}]
+46-stack-list-arguments --simple-values 0 50
+
+GDB: 46^done,stack-args=[frame={level="0",args=[{name="argc",type="int",value="2"},{name="argv",type="string *",value="0x7fffffffe728"}]}]
+47-stack-list-locals --thread 1 --frame 0 --simple-values
+
+GDB: 47^done,locals=[{name="i",type="int",value="0"},{name="n",type="int",value="5"},{name="s",type="string",value="0x603270 \"hello\""}]
+48-var-update --all-values *
+
+GDB: 48^done,changelist=[]
+49-var-create - * s
+
+GDB: 49^done,name="var11",numchild="1",value="0x603270 \"hello\"",type="string",thread-id="1",has_more="0"
+50-var-create - * n
+
+GDB: 50^done,name="var12",numchild="0",value="5",type="int",thread-id="1",has_more="0"
+51-var-create - * i
+
+GDB: 51^done,name="var13",numchild="0",value="0",type="int",thread-id="1",has_more="0"
+52-var-create - * argv
+
+GDB: 52^done,name="var14",numchild="1",value="0x7fffffffe728",type="string *",thread-id="1",has_more="0"
+53-var-create - * argc
+
+GDB: 53^done,name="var15",numchild="0",value="2",type="int",thread-id="1",has_more="0"
+-stack-select-frame 0
+
+SENDING: Content-Length:605
+
+{"thread":"1","frames":[{"level":"0","addr":"0x000000000040075e","func":"main","file":"caesar.c","fullname":"/home/ubuntu/caesar.c","line":"26","exists":true,"args":[{"name":"argc","type":"int","value":"2","objname":"var15","numchild":"0"},{"name":"argv","type":"string *","value":"0x7fffffffe728","address":140737488348968,"objname":"var14","numchild":"1"}],"locals":[{"name":"i","type":"int","value":"0","objname":"var13","numchild":"0"},{"name":"n","type":"int","value":"5","objname":"var12","numchild":"0"},{"name":"s","type":"string","value":"0x603270 \"hello\"","objname":"var11","numchild":"1"}]}]}
+GDB: ^done
+PLUGIN: Content-Length:56
+
+{"exp":"argv[]","f":0,"t":"1","command":"eval","_id":25}
+54-data-evaluate-expression --thread 1 --frame 0 "argv[]"
+
+GDB: 54^error,msg="A syntax error in expression, near `]'."
+SENDING: Content-Length:97
+
+{"_seq":"54","state":"error","status":{"msg":"A syntax error in expression, near `]'."},"_id":25}
+PLUGIN: Content-Length:57
+
+{"exp":"argv[1]","f":0,"t":"1","command":"eval","_id":26}
+55-data-evaluate-expression --thread 1 --frame 0 "argv[1]"
+
+PLUGIN: Content-Length:57
+
+{"exp":"argv[0]","f":0,"t":"1","command":"eval","_id":27}
+56-data-evaluate-expression --thread 1 --frame 0 "argv[0]"
+
+PLUGIN: Content-Length:56
+
+{"exp":"argv[]","f":0,"t":"1","command":"eval","_id":28}
+57-data-evaluate-expression --thread 1 --frame 0 "argv[]"
+
+GDB: 55^done,value="0x7fffffffea31 \"1\""
+SENDING: Content-Length:79
+
+{"_seq":"55","state":"done","status":{"value":"0x7fffffffea31 \"1\""},"_id":26}
+GDB: 56^done,value="0x7fffffffea28 \"./caesar\""
+SENDING: Content-Length:86
+
+{"_seq":"56","state":"done","status":{"value":"0x7fffffffea28 \"./caesar\""},"_id":27}
+GDB: 57^error,msg="A syntax error in expression, near `]'."
+SENDING: Content-Length:97
+
+{"_seq":"57","state":"error","status":{"msg":"A syntax error in expression, near `]'."},"_id":28}
+PLUGIN: Content-Length:57
+
+{"exp":"argv[1]","f":0,"t":"1","command":"eval","_id":29}
+58-data-evaluate-expression --thread 1 --frame 0 "argv[1]"
+
+PLUGIN: Content-Length:57
+
+{"exp":"argv[0]","f":0,"t":"1","command":"eval","_id":30}
+59-data-evaluate-expression --thread 1 --frame 0 "argv[0]"
+
+GDB: 58^done,value="0x7fffffffea31 \"1\""
+SENDING: Content-Length:79
+
+{"_seq":"58","state":"done","status":{"value":"0x7fffffffea31 \"1\""},"_id":29}
+GDB: 59^done,value="0x7fffffffea28 \"./caesar\""
+SENDING: Content-Length:86
+
+{"_seq":"59","state":"done","status":{"value":"0x7fffffffea28 \"./caesar\""},"_id":30}
+PLUGIN: Content-Length:27
+
+{"command":"next","_id":31}
+60-exec-next 
+
+GDB: 60^running
+SENDING: Content-Length:52
+
+{"_seq":"60","state":"running","status":{},"_id":31}
+GDB: *running,thread-id="all"
+GDB: *stopped,reason="end-stepping-range",frame={addr="0x0000000000400763",func="main",args=[{name="argc",value="2"},{name="argv",value="0x7fffffffe728"}],file="caesar.c",fullname="/home/ubuntu/caesar.c",line="15"},thread-id="1",stopped-threads="all",core="12"
+61-stack-list-frames 0 50
+
+GDB: 61^done,stack=[frame={level="0",addr="0x0000000000400763",func="main",file="caesar.c",fullname="/home/ubuntu/caesar.c",line="15"}]
+62-stack-list-arguments --simple-values 0 50
+
+GDB: 62^done,stack-args=[frame={level="0",args=[{name="argc",type="int",value="2"},{name="argv",type="string *",value="0x7fffffffe728"}]}]
+63-stack-list-locals --thread 1 --frame 0 --simple-values
+
+GDB: 63^done,locals=[{name="i",type="int",value="0"},{name="n",type="int",value="5"},{name="s",type="string",value="0x603270 \"hello\""}]
+64-var-update --all-values *
+
+GDB: 64^done,changelist=[]
+65-var-create - * s
+
+GDB: 65^done,name="var16",numchild="1",value="0x603270 \"hello\"",type="string",thread-id="1",has_more="0"
+66-var-create - * n
+
+GDB: 66^done,name="var17",numchild="0",value="5",type="int",thread-id="1",has_more="0"
+67-var-create - * i
+
+GDB: 67^done,name="var18",numchild="0",value="0",type="int",thread-id="1",has_more="0"
+68-var-create - * argv
+
+GDB: 68^done,name="var19",numchild="1",value="0x7fffffffe728",type="string *",thread-id="1",has_more="0"
+69-var-create - * argc
+
+GDB: 69^done,name="var20",numchild="0",value="2",type="int",thread-id="1",has_more="0"
+-stack-select-frame 0
+
+SENDING: Content-Length:605
+
+{"thread":"1","frames":[{"level":"0","addr":"0x0000000000400763","func":"main","file":"caesar.c","fullname":"/home/ubuntu/caesar.c","line":"15","exists":true,"args":[{"name":"argc","type":"int","value":"2","objname":"var20","numchild":"0"},{"name":"argv","type":"string *","value":"0x7fffffffe728","address":140737488348968,"objname":"var19","numchild":"1"}],"locals":[{"name":"i","type":"int","value":"0","objname":"var18","numchild":"0"},{"name":"n","type":"int","value":"5","objname":"var17","numchild":"0"},{"name":"s","type":"string","value":"0x603270 \"hello\"","objname":"var16","numchild":"1"}]}]}
+GDB: ^done
+PLUGIN: Content-Length:56
+
+{"exp":"argv[]","f":0,"t":"1","command":"eval","_id":32}
+70-data-evaluate-expression --thread 1 --frame 0 "argv[]"
+
+GDB: 70^error,msg="A syntax error in expression, near `]'."
+SENDING: Content-Length:97
+
+{"_seq":"70","state":"error","status":{"msg":"A syntax error in expression, near `]'."},"_id":32}
+PLUGIN: Content-Length:57
+
+{"exp":"argv[1]","f":0,"t":"1","command":"eval","_id":33}
+71-data-evaluate-expression --thread 1 --frame 0 "argv[1]"
+
+PLUGIN: Content-Length:57
+
+{"exp":"argv[0]","f":0,"t":"1","command":"eval","_id":34}
+72-data-evaluate-expression --thread 1 --frame 0 "argv[0]"
+
+PLUGIN: Content-Length:56
+
+{"exp":"argv[]","f":0,"t":"1","command":"eval","_id":35}
+73-data-evaluate-expression --thread 1 --frame 0 "argv[]"
+
+PLUGIN: Content-Length:57
+
+{"exp":"argv[1]","f":0,"t":"1","command":"eval","_id":36}
+74-data-evaluate-expression --thread 1 --frame 0 "argv[1]"
+
+PLUGIN: Content-Length:57
+
+{"exp":"argv[0]","f":0,"t":"1","command":"eval","_id":37}
+75-data-evaluate-expression --thread 1 --frame 0 "argv[0]"
+
+GDB: 71^done,value="0x7fffffffea31 \"1\""
+SENDING: Content-Length:79
+
+{"_seq":"71","state":"done","status":{"value":"0x7fffffffea31 \"1\""},"_id":33}
+GDB: 72^done,value="0x7fffffffea28 \"./caesar\""
+SENDING: Content-Length:86
+
+{"_seq":"72","state":"done","status":{"value":"0x7fffffffea28 \"./caesar\""},"_id":34}
+GDB: 73^error,msg="A syntax error in expression, near `]'."
+SENDING: Content-Length:97
+
+{"_seq":"73","state":"error","status":{"msg":"A syntax error in expression, near `]'."},"_id":35}
+GDB: 74^done,value="0x7fffffffea31 \"1\""
+SENDING: Content-Length:79
+
+{"_seq":"74","state":"done","status":{"value":"0x7fffffffea31 \"1\""},"_id":36}
+GDB: 75^done,value="0x7fffffffea28 \"./caesar\""
+SENDING: Content-Length:86
+
+{"_seq":"75","state":"done","status":{"value":"0x7fffffffea28 \"./caesar\""},"_id":37}
+PLUGIN: Content-Length:27
+
+{"command":"next","_id":38}
+76-exec-next 
+
+GDB: 76^running
+SENDING: Content-Length:52
+
+{"_seq":"76","state":"running","status":{},"_id":38}
+GDB: *running,thread-id="all"
+GDB: *stopped,reason="end-stepping-range",frame={addr="0x00000000004006e1",func="main",args=[{name="argc",value="2"},{name="argv",value="0x7fffffffe728"}],file="caesar.c",fullname="/home/ubuntu/caesar.c",line="17"},thread-id="1",stopped-threads="all",core="12"
+77-stack-list-frames 0 50
+
+GDB: 77^done,stack=[frame={level="0",addr="0x00000000004006e1",func="main",file="caesar.c",fullname="/home/ubuntu/caesar.c",line="17"}]
+78-stack-list-arguments --simple-values 0 50
+
+GDB: 78^done,stack-args=[frame={level="0",args=[{name="argc",type="int",value="2"},{name="argv",type="string *",value="0x7fffffffe728"}]}]
+79-stack-list-locals --thread 1 --frame 0 --simple-values
+
+GDB: 79^done,locals=[{name="i",type="int",value="1"},{name="n",type="int",value="5"},{name="s",type="string",value="0x603270 \"hello\""}]
+80-var-update --all-values *
+
+GDB: 80^done,changelist=[{name="var18",value="1",in_scope="true",type_changed="false",has_more="0"},{name="var13",value="1",in_scope="true",type_changed="false",has_more="0"},{name="var8",value="1",in_scope="true",type_changed="false",has_more="0"},{name="var3",value="1",in_scope="true",type_changed="false",has_more="0"}]
+81-var-create - * s
+
+GDB: 81^done,name="var21",numchild="1",value="0x603270 \"hello\"",type="string",thread-id="1",has_more="0"
+82-var-create - * n
+
+GDB: 82^done,name="var22",numchild="0",value="5",type="int",thread-id="1",has_more="0"
+83-var-create - * i
+
+GDB: 83^done,name="var23",numchild="0",value="1",type="int",thread-id="1",has_more="0"
+84-var-create - * argv
+
+GDB: 84^done,name="var24",numchild="1",value="0x7fffffffe728",type="string *",thread-id="1",has_more="0"
+85-var-create - * argc
+
+GDB: 85^done,name="var25",numchild="0",value="2",type="int",thread-id="1",has_more="0"
+-stack-select-frame 0
+
+SENDING: Content-Length:605
+
+{"thread":"1","frames":[{"level":"0","addr":"0x00000000004006e1","func":"main","file":"caesar.c","fullname":"/home/ubuntu/caesar.c","line":"17","exists":true,"args":[{"name":"argc","type":"int","value":"2","objname":"var25","numchild":"0"},{"name":"argv","type":"string *","value":"0x7fffffffe728","address":140737488348968,"objname":"var24","numchild":"1"}],"locals":[{"name":"i","type":"int","value":"1","objname":"var23","numchild":"0"},{"name":"n","type":"int","value":"5","objname":"var22","numchild":"0"},{"name":"s","type":"string","value":"0x603270 \"hello\"","objname":"var21","numchild":"1"}]}]}
+GDB: ^done
+PLUGIN: Content-Length:56
+
+{"exp":"argv[]","f":0,"t":"1","command":"eval","_id":39}
+86-data-evaluate-expression --thread 1 --frame 0 "argv[]"
+
+GDB: 86^error,msg="A syntax error in expression, near `]'."
+SENDING: Content-Length:97
+
+{"_seq":"86","state":"error","status":{"msg":"A syntax error in expression, near `]'."},"_id":39}
+PLUGIN: Content-Length:57
+
+{"exp":"argv[1]","f":0,"t":"1","command":"eval","_id":40}
+87-data-evaluate-expression --thread 1 --frame 0 "argv[1]"
+
+PLUGIN: Content-Length:57
+
+{"exp":"argv[0]","f":0,"t":"1","command":"eval","_id":41}
+88-data-evaluate-expression --thread 1 --frame 0 "argv[0]"
+
+PLUGIN: Content-Length:56
+
+{"exp":"argv[]","f":0,"t":"1","command":"eval","_id":42}
+89-data-evaluate-expression --thread 1 --frame 0 "argv[]"
+
+GDB: 87^done,value="0x7fffffffea31 \"1\""
+SENDING: Content-Length:79
+
+{"_seq":"87","state":"done","status":{"value":"0x7fffffffea31 \"1\""},"_id":40}
+GDB: 88^done,value="0x7fffffffea28 \"./caesar\""
+SENDING: Content-Length:86
+
+{"_seq":"88","state":"done","status":{"value":"0x7fffffffea28 \"./caesar\""},"_id":41}
+GDB: 89^error,msg="A syntax error in expression, near `]'."
+SENDING: Content-Length:97
+
+{"_seq":"89","state":"error","status":{"msg":"A syntax error in expression, near `]'."},"_id":42}
+PLUGIN: Content-Length:57
+
+{"exp":"argv[1]","f":0,"t":"1","command":"eval","_id":43}
+90-data-evaluate-expression --thread 1 --frame 0 "argv[1]"
+
+PLUGIN: Content-Length:57
+
+{"exp":"argv[0]","f":0,"t":"1","command":"eval","_id":44}
+91-data-evaluate-expression --thread 1 --frame 0 "argv[0]"
+
+GDB: 90^done,value="0x7fffffffea31 \"1\""
+SENDING: Content-Length:79
+
+{"_seq":"90","state":"done","status":{"value":"0x7fffffffea31 \"1\""},"_id":43}
+GDB: 91^done,value="0x7fffffffea28 \"./caesar\""
+SENDING: Content-Length:86
+
+{"_seq":"91","state":"done","status":{"value":"0x7fffffffea28 \"./caesar\""},"_id":44}
+PLUGIN: Content-Length:27
+
+{"command":"next","_id":45}
+92-exec-next 
+
+GDB: 92^running
+SENDING: Content-Length:52
+
+{"_seq":"92","state":"running","status":{},"_id":45}
+GDB: *running,thread-id="all"
+GDB: =breakpoint-modified,bkpt={number="1",type="breakpoint",disp="keep",enabled="y",addr="0x000000000040070b",func="main",file="caesar.c",fullname="/home/ubuntu/caesar.c",line="20",thread-groups=["i1"],times="2",original-location="/home/ubuntu/caesar.c:20"}
+GDB: ~"\n"
+GDB: ~"Breakpoint 1, main (argc=2, argv=0x7fffffffe728) at caesar.c:20\n"
+GDB: ~"20\t            printf(\"%c\", (int) s[i] + (int) argv[1]);\n"
+GDB: *stopped,reason="breakpoint-hit",disp="keep",bkptno="1",frame={addr="0x000000000040070b",func="main",args=[{name="argc",value="2"},{name="argv",value="0x7fffffffe728"}],file="caesar.c",fullname="/home/ubuntu/caesar.c",line="20"},thread-id="1",stopped-threads="all",core="10"
+93-stack-list-frames 0 50
+
+GDB: 93^done,stack=[frame={level="0",addr="0x000000000040070b",func="main",file="caesar.c",fullname="/home/ubuntu/caesar.c",line="20"}]
+94-stack-list-arguments --simple-values 0 50
+
+GDB: 94^done,stack-args=[frame={level="0",args=[{name="argc",type="int",value="2"},{name="argv",type="string *",value="0x7fffffffe728"}]}]
+95-var-update --all-values *
+
+GDB: 95^done,changelist=[]
+-stack-select-frame 0
+
+SENDING: Content-Length:600
+
+{"thread":"1","frames":[{"level":"0","addr":"0x000000000040070b","func":"main","file":"caesar.c","fullname":"/home/ubuntu/caesar.c","line":"20","exists":true,"args":[{"name":"argv","type":"string *","value":"0x7fffffffe728","address":140737488348968,"objname":"var4","numchild":"1"},{"name":"argc","type":"int","value":"2","objname":"var5","numchild":"0"}],"locals":[{"name":"s","type":"string","value":"0x603270 \"hello\"","objname":"var1","numchild":"1"},{"name":"n","type":"int","value":"5","objname":"var2","numchild":"0"},{"name":"i","type":"int","value":"1","objname":"var3","numchild":"0"}]}]}
+GDB: ^done
+PLUGIN: Content-Length:56
+
+{"exp":"argv[]","f":0,"t":"1","command":"eval","_id":46}
+96-data-evaluate-expression --thread 1 --frame 0 "argv[]"
+
+GDB: 96^error,msg="A syntax error in expression, near `]'."
+SENDING: Content-Length:97
+
+{"_seq":"96","state":"error","status":{"msg":"A syntax error in expression, near `]'."},"_id":46}
+PLUGIN: Content-Length:57
+
+{"exp":"argv[1]","f":0,"t":"1","command":"eval","_id":47}
+97-data-evaluate-expression --thread 1 --frame 0 "argv[1]"
+
+PLUGIN: Content-Length:57
+
+{"exp":"argv[0]","f":0,"t":"1","command":"eval","_id":48}
+98-data-evaluate-expression --thread 1 --frame 0 "argv[0]"
+
+PLUGIN: Content-Length:56
+
+{"exp":"argv[]","f":0,"t":"1","command":"eval","_id":49}
+99-data-evaluate-expression --thread 1 --frame 0 "argv[]"
+
+PLUGIN: Content-Length:57
+
+{"exp":"argv[1]","f":0,"t":"1","command":"eval","_id":50}
+100-data-evaluate-expression --thread 1 --frame 0 "argv[1]"
+
+PLUGIN: Content-Length:57
+
+{"exp":"argv[0]","f":0,"t":"1","command":"eval","_id":51}
+101-data-evaluate-expression --thread 1 --frame 0 "argv[0]"
+
+GDB: 97^done,value="0x7fffffffea31 \"1\""
+SENDING: Content-Length:79
+
+{"_seq":"97","state":"done","status":{"value":"0x7fffffffea31 \"1\""},"_id":47}
+GDB: 98^done,value="0x7fffffffea28 \"./caesar\""
+SENDING: Content-Length:86
+
+{"_seq":"98","state":"done","status":{"value":"0x7fffffffea28 \"./caesar\""},"_id":48}
+GDB: 99^error,msg="A syntax error in expression, near `]'."
+SENDING: Content-Length:97
+
+{"_seq":"99","state":"error","status":{"msg":"A syntax error in expression, near `]'."},"_id":49}
+GDB: 100^done,value="0x7fffffffea31 \"1\""
+SENDING: Content-Length:80
+
+{"_seq":"100","state":"done","status":{"value":"0x7fffffffea31 \"1\""},"_id":50}
+GDB: 101^done,value="0x7fffffffea28 \"./caesar\""
+SENDING: Content-Length:87
+
+{"_seq":"101","state":"done","status":{"value":"0x7fffffffea28 \"./caesar\""},"_id":51}
+PLUGIN: Content-Length:27
+
+{"command":"next","_id":52}
+102-exec-next 
+
+GDB: 102^running
+SENDING: Content-Length:53
+
+{"_seq":"102","state":"running","status":{},"_id":52}
+GDB: *running,thread-id="all"
+GDB: *stopped,reason="end-stepping-range",frame={addr="0x0000000000400739",func="main",args=[{name="argc",value="2"},{name="argv",value="0x7fffffffe728"}],file="caesar.c",fullname="/home/ubuntu/caesar.c",line="21"},thread-id="1",stopped-threads="all",core="12"
+103-stack-list-frames 0 50
+
+GDB: 103^done,stack=[frame={level="0",addr="0x0000000000400739",func="main",file="caesar.c",fullname="/home/ubuntu/caesar.c",line="21"}]
+104-stack-list-arguments --simple-values 0 50
+
+GDB: 104^done,stack-args=[frame={level="0",args=[{name="argc",type="int",value="2"},{name="argv",type="string *",value="0x7fffffffe728"}]}]
+105-var-update --all-values *
+
+GDB: 105^done,changelist=[]
+-stack-select-frame 0
+
+SENDING: Content-Length:601
+
+{"thread":"1","frames":[{"level":"0","addr":"0x0000000000400739","func":"main","file":"caesar.c","fullname":"/home/ubuntu/caesar.c","line":"21","exists":true,"args":[{"name":"argv","type":"string *","value":"0x7fffffffe728","address":140737488348968,"objname":"var9","numchild":"1"},{"name":"argc","type":"int","value":"2","objname":"var10","numchild":"0"}],"locals":[{"name":"s","type":"string","value":"0x603270 \"hello\"","objname":"var6","numchild":"1"},{"name":"n","type":"int","value":"5","objname":"var7","numchild":"0"},{"name":"i","type":"int","value":"1","objname":"var8","numchild":"0"}]}]}
+GDB: ^done
+PLUGIN: Content-Length:56
+
+{"exp":"argv[]","f":0,"t":"1","command":"eval","_id":53}
+106-data-evaluate-expression --thread 1 --frame 0 "argv[]"
+
+GDB: 106^error,msg="A syntax error in expression, near `]'."
+SENDING: Content-Length:98
+
+{"_seq":"106","state":"error","status":{"msg":"A syntax error in expression, near `]'."},"_id":53}
+PLUGIN: Content-Length:57
+
+{"exp":"argv[1]","f":0,"t":"1","command":"eval","_id":54}
+107-data-evaluate-expression --thread 1 --frame 0 "argv[1]"
+
+PLUGIN: Content-Length:57
+
+{"exp":"argv[0]","f":0,"t":"1","command":"eval","_id":55}Content-Length:56
+
+{"exp":"argv[]","f":0,"t":"1","command":"eval","_id":56}
+108-data-evaluate-expression --thread 1 --frame 0 "argv[0]"
+
+PLUGIN: Content-Length:57
+
+{"exp":"argv[1]","f":0,"t":"1","command":"eval","_id":57}
+109-data-evaluate-expression --thread 1 --frame 0 "argv[]"
+
+PLUGIN: Content-Length:57
+
+{"exp":"argv[0]","f":0,"t":"1","command":"eval","_id":58}
+110-data-evaluate-expression --thread 1 --frame 0 "argv[1]"
+
+GDB: 107^done,value="0x7fffffffea31 \"1\""
+SENDING: Content-Length:80
+
+{"_seq":"107","state":"done","status":{"value":"0x7fffffffea31 \"1\""},"_id":54}
+111-data-evaluate-expression --thread 1 --frame 0 "argv[0]"
+
+GDB: 108^done,value="0x7fffffffea28 \"./caesar\""
+SENDING: Content-Length:87
+
+{"_seq":"108","state":"done","status":{"value":"0x7fffffffea28 \"./caesar\""},"_id":55}
+GDB: 109^error,msg="A syntax error in expression, near `]'."
+SENDING: Content-Length:98
+
+{"_seq":"109","state":"error","status":{"msg":"A syntax error in expression, near `]'."},"_id":56}
+GDB: 110^done,value="0x7fffffffea31 \"1\""
+SENDING: Content-Length:80
+
+{"_seq":"110","state":"done","status":{"value":"0x7fffffffea31 \"1\""},"_id":57}
+GDB: 111^done,value="0x7fffffffea28 \"./caesar\""
+SENDING: Content-Length:87
+
+{"_seq":"111","state":"done","status":{"value":"0x7fffffffea28 \"./caesar\""},"_id":58}
+PLUGIN: Content-Length:27
+
+{"command":"next","_id":59}
+112-exec-next 
+
+GDB: 112^running
+SENDING: Content-Length:53
+
+{"_seq":"112","state":"running","status":{},"_id":59}
+GDB: *running,thread-id="all"
+GDB: *stopped,reason="end-stepping-range",frame={addr="0x000000000040075e",func="main",args=[{name="argc",value="2"},{name="argv",value="0x7fffffffe728"}],file="caesar.c",fullname="/home/ubuntu/caesar.c",line="26"},thread-id="1",stopped-threads="all",core="14"
+113-stack-list-frames 0 50
+
+GDB: 113^done,stack=[frame={level="0",addr="0x000000000040075e",func="main",file="caesar.c",fullname="/home/ubuntu/caesar.c",line="26"}]
+114-stack-list-arguments --simple-values 0 50
+
+GDB: 114^done,stack-args=[frame={level="0",args=[{name="argc",type="int",value="2"},{name="argv",type="string *",value="0x7fffffffe728"}]}]
+115-var-update --all-values *
+
+GDB: 115^done,changelist=[]
+-stack-select-frame 0
+
+SENDING: Content-Length:605
+
+{"thread":"1","frames":[{"level":"0","addr":"0x000000000040075e","func":"main","file":"caesar.c","fullname":"/home/ubuntu/caesar.c","line":"26","exists":true,"args":[{"name":"argv","type":"string *","value":"0x7fffffffe728","address":140737488348968,"objname":"var14","numchild":"1"},{"name":"argc","type":"int","value":"2","objname":"var15","numchild":"0"}],"locals":[{"name":"s","type":"string","value":"0x603270 \"hello\"","objname":"var11","numchild":"1"},{"name":"n","type":"int","value":"5","objname":"var12","numchild":"0"},{"name":"i","type":"int","value":"1","objname":"var13","numchild":"0"}]}]}
+GDB: ^done
+PLUGIN: Content-Length:56
+
+{"exp":"argv[]","f":0,"t":"1","command":"eval","_id":60}
+116-data-evaluate-expression --thread 1 --frame 0 "argv[]"
+
+GDB: 116^error,msg="A syntax error in expression, near `]'."
+SENDING: Content-Length:98
+
+{"_seq":"116","state":"error","status":{"msg":"A syntax error in expression, near `]'."},"_id":60}
+PLUGIN: Content-Length:57
+
+{"exp":"argv[1]","f":0,"t":"1","command":"eval","_id":61}
+117-data-evaluate-expression --thread 1 --frame 0 "argv[1]"
+
+PLUGIN: Content-Length:57
+
+{"exp":"argv[0]","f":0,"t":"1","command":"eval","_id":62}
+118-data-evaluate-expression --thread 1 --frame 0 "argv[0]"
+
+PLUGIN: Content-Length:56
+
+{"exp":"argv[]","f":0,"t":"1","command":"eval","_id":63}
+119-data-evaluate-expression --thread 1 --frame 0 "argv[]"
+
+PLUGIN: Content-Length:57
+
+{"exp":"argv[1]","f":0,"t":"1","command":"eval","_id":64}
+120-data-evaluate-expression --thread 1 --frame 0 "argv[1]"
+
+GDB: 117^done,value="0x7fffffffea31 \"1\""
+SENDING: Content-Length:80
+
+{"_seq":"117","state":"done","status":{"value":"0x7fffffffea31 \"1\""},"_id":61}
+GDB: 118^done,value="0x7fffffffea28 \"./caesar\""
+SENDING: Content-Length:87
+
+{"_seq":"118","state":"done","status":{"value":"0x7fffffffea28 \"./caesar\""},"_id":62}
+GDB: 119^error,msg="A syntax error in expression, near `]'."
+SENDING: Content-Length:98
+
+{"_seq":"119","state":"error","status":{"msg":"A syntax error in expression, near `]'."},"_id":63}
+GDB: 120^done,value="0x7fffffffea31 \"1\""
+SENDING: Content-Length:80
+
+{"_seq":"120","state":"done","status":{"value":"0x7fffffffea31 \"1\""},"_id":64}
+PLUGIN: Content-Length:57
+
+{"exp":"argv[0]","f":0,"t":"1","command":"eval","_id":65}
+121-data-evaluate-expression --thread 1 --frame 0 "argv[0]"
+
+GDB: 121^done,value="0x7fffffffea28 \"./caesar\""
+SENDING: Content-Length:87
+
+{"_seq":"121","state":"done","status":{"value":"0x7fffffffea28 \"./caesar\""},"_id":65}
+PLUGIN: Content-Length:50
+
+{"name":"var14","command":"var-children","_id":66}
+122-var-list-children --simple-values var14
+
+GDB: 122^done,numchild="1",children=[child={name="var14.*argv",exp="*argv",numchild="1",value="0x7fffffffea28 \"./caesar\"",type="string",thread-id="1"}],has_more="0"
+SENDING: Content-Length:184
+
+{"_id":66,"children":[{"name":"var14.*argv","exp":"*argv","numchild":"1","value":"0x7fffffffea28 \"./caesar\"","type":"string","thread-id":"1","objname":"var14.*argv"}],"state":"done"}
+PLUGIN: Content-Length:56
+
+{"name":"var14.*argv","command":"var-children","_id":67}
+123-var-list-children --simple-values var14.*argv
+
+GDB: 123^done,numchild="1",children=[child={name="var14.*argv.**argv",exp="**argv",numchild="0",value="46 '.'",type="char",thread-id="1"}],has_more="0"
+SENDING: Content-Length:176
+
+{"_id":67,"children":[{"name":"var14.*argv.**argv","exp":"**argv","numchild":"0","value":"46 '.'","type":"char","thread-id":"1","objname":"var14.*argv.**argv"}],"state":"done"}
+PLUGIN: Content-Length:27
+
+{"command":"next","_id":68}
+124-exec-next 
+
+GDB: 124^running
+SENDING: Content-Length:53
+
+{"_seq":"124","state":"running","status":{},"_id":68}
+GDB: *running,thread-id="all"
+GDB: *stopped,reason="end-stepping-range",frame={addr="0x0000000000400763",func="main",args=[{name="argc",value="2"},{name="argv",value="0x7fffffffe728"}],file="caesar.c",fullname="/home/ubuntu/caesar.c",line="15"},thread-id="1",stopped-threads="all",core="14"
+125-stack-list-frames 0 50
+
+GDB: 125^done,stack=[frame={level="0",addr="0x0000000000400763",func="main",file="caesar.c",fullname="/home/ubuntu/caesar.c",line="15"}]
+126-stack-list-arguments --simple-values 0 50
+
+GDB: 126^done,stack-args=[frame={level="0",args=[{name="argc",type="int",value="2"},{name="argv",type="string *",value="0x7fffffffe728"}]}]
+127-var-update --all-values *
+
+GDB: 127^done,changelist=[]
+-stack-select-frame 0
+
+SENDING: Content-Length:605
+
+{"thread":"1","frames":[{"level":"0","addr":"0x0000000000400763","func":"main","file":"caesar.c","fullname":"/home/ubuntu/caesar.c","line":"15","exists":true,"args":[{"name":"argv","type":"string *","value":"0x7fffffffe728","address":140737488348968,"objname":"var19","numchild":"1"},{"name":"argc","type":"int","value":"2","objname":"var20","numchild":"0"}],"locals":[{"name":"s","type":"string","value":"0x603270 \"hello\"","objname":"var16","numchild":"1"},{"name":"n","type":"int","value":"5","objname":"var17","numchild":"0"},{"name":"i","type":"int","value":"1","objname":"var18","numchild":"0"}]}]}
+GDB: ^done
+PLUGIN: Content-Length:56
+
+{"exp":"argv[]","f":0,"t":"1","command":"eval","_id":69}
+128-data-evaluate-expression --thread 1 --frame 0 "argv[]"
+
+GDB: 128^error,msg="A syntax error in expression, near `]'."
+SENDING: Content-Length:98
+
+{"_seq":"128","state":"error","status":{"msg":"A syntax error in expression, near `]'."},"_id":69}
+PLUGIN: Content-Length:57
+
+{"exp":"argv[1]","f":0,"t":"1","command":"eval","_id":70}
+129-data-evaluate-expression --thread 1 --frame 0 "argv[1]"
+
+GDB: 129^done,value="0x7fffffffea31 \"1\""
+SENDING: Content-Length:80
+
+{"_seq":"129","state":"done","status":{"value":"0x7fffffffea31 \"1\""},"_id":70}
+PLUGIN: Content-Length:57
+
+{"exp":"argv[0]","f":0,"t":"1","command":"eval","_id":71}
+130-data-evaluate-expression --thread 1 --frame 0 "argv[0]"
+
+PLUGIN: Content-Length:56
+
+{"exp":"argv[]","f":0,"t":"1","command":"eval","_id":72}
+131-data-evaluate-expression --thread 1 --frame 0 "argv[]"
+
+PLUGIN: Content-Length:57
+
+{"exp":"argv[1]","f":0,"t":"1","command":"eval","_id":73}
+132-data-evaluate-expression --thread 1 --frame 0 "argv[1]"
+
+GDB: 130^done,value="0x7fffffffea28 \"./caesar\""
+SENDING: Content-Length:87
+
+{"_seq":"130","state":"done","status":{"value":"0x7fffffffea28 \"./caesar\""},"_id":71}
+GDB: 131^error,msg="A syntax error in expression, near `]'."
+SENDING: Content-Length:98
+
+{"_seq":"131","state":"error","status":{"msg":"A syntax error in expression, near `]'."},"_id":72}
+PLUGIN: Content-Length:57
+
+{"exp":"argv[0]","f":0,"t":"1","command":"eval","_id":74}
+133-data-evaluate-expression --thread 1 --frame 0 "argv[0]"
+
+GDB: 132^done,value="0x7fffffffea31 \"1\""
+SENDING: Content-Length:80
+
+{"_seq":"132","state":"done","status":{"value":"0x7fffffffea31 \"1\""},"_id":73}
+GDB: 133^done,value="0x7fffffffea28 \"./caesar\""
+SENDING: Content-Length:87
+
+{"_seq":"133","state":"done","status":{"value":"0x7fffffffea28 \"./caesar\""},"_id":74}
+PLUGIN: Content-Length:50
+
+{"name":"var19","command":"var-children","_id":75}
+134-var-list-children --simple-values var19
+
+GDB: 134^done,numchild="1",children=[child={name="var19.*argv",exp="*argv",numchild="1",value="0x7fffffffea28 \"./caesar\"",type="string",thread-id="1"}],has_more="0"
+SENDING: Content-Length:184
+
+{"_id":75,"children":[{"name":"var19.*argv","exp":"*argv","numchild":"1","value":"0x7fffffffea28 \"./caesar\"","type":"string","thread-id":"1","objname":"var19.*argv"}],"state":"done"}
+PLUGIN: Content-Length:56
+
+{"name":"var19.*argv","command":"var-children","_id":76}
+135-var-list-children --simple-values var19.*argv
+
+GDB: 135^done,numchild="1",children=[child={name="var19.*argv.**argv",exp="**argv",numchild="0",value="46 '.'",type="char",thread-id="1"}],has_more="0"
+SENDING: Content-Length:176
+
+{"_id":76,"children":[{"name":"var19.*argv.**argv","exp":"**argv","numchild":"0","value":"46 '.'","type":"char","thread-id":"1","objname":"var19.*argv.**argv"}],"state":"done"}
+PLUGIN: Content-Length:50
+
+{"name":"var16","command":"var-children","_id":77}
+136-var-list-children --simple-values var16
+
+GDB: 136^done,numchild="1",children=[child={name="var16.*s",exp="*s",numchild="0",value="104 'h'",type="char",thread-id="1"}],has_more="0"
+SENDING: Content-Length:153
+
+{"_id":77,"children":[{"name":"var16.*s","exp":"*s","numchild":"0","value":"104 'h'","type":"char","thread-id":"1","objname":"var16.*s"}],"state":"done"}
+SIGINT

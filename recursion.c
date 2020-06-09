@@ -16,9 +16,9 @@ void draw(int h)
    {
        return;
    }
-
+   
    draw(h - 1);
-
+   
    for (int i = 0; i < h; i++)
    {
        printf("#");

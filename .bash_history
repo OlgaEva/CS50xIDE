@@ -1,64 +1,3 @@
-clang mario untitled.1
-make untitled1
-make untitled2.c
-y
-make untitled2
-git pull origin master
-git init
-git remote add origin https://github.com/OlgaEva/CS50xIDE.git
-make MarioEx
-./MarioEx
-make buggy0
-./buggy0
-make buggy0
-help50 make buggy0
-make buggy1
-help50 make buggy1
-make buggy1
-./buggy1
-git add .
-git commit -m "add array lecture 1 first files"
-git config --global user.email "olga.rosas@gmail.com"
-git config --global user.name "OlgaEva"
-git log
-git add .
-git commit -m "initial commit lecture 1"
-git push origin master
-make buggy2
-./buggy2
-make buggy2
-./buggy2
-make buggy2
-make buggy2 -lcs50
-./buggy2
-make buggy2
-./buggy2
-git add .
-git commit -m "add buggy2.c"
-git push origin master
-debug50 ./buggy2
-make buggy2
-make hi
-make hi -lcs50
-./hi
-make hi
-./hi
-make hi
-./hi
-git log
-git add .
-git commit -m "add hi.c"
-git push origin master
-make scores
-./scores
-git add .
-git commit -m "add scores.c"
-git push origin master
-nake scores
-make scores
-make scores
-make scores
-./scores
 git dd .
 git add .
 git commit -m "add scores.c"
@@ -246,3 +185,357 @@ git commit -m "add casting.c"
 git push origin master
 make casting
 ./casting
+git add .
+git commit -m "add implicit casting"
+git push origin master
+make uppercase
+./uppercase
+make caesar 3
+make caesar 3
+make caesar
+make caesar 4
+make caesar 4
+help50 make caesar
+help50 make caesar
+./caesar 5
+make caesar 5
+./caesar 5
+debug50 ./caesar 5
+make argv
+./argv Olga
+./argv
+make caesar
+./caesar3
+I love you!
+./caesar 3
+make caesar
+./caesar 3
+make caesar
+./caesar 2
+make caesar
+make caesar
+./caesar 1
+make caesar
+./caesar 1
+make caesar
+./caesar 1
+debug50 ./caesar 1
+make caesar
+./caesar 1
+make caesar
+./caesar 1
+make caesar
+./caesar 2
+make caesar
+make caesar
+make caesar
+make caesar
+make caesar
+make caesar
+make caesar
+make caesar
+make caesar
+./caesar 5
+make caesar
+make caesar
+make caesar
+./caesar 4
+make caesar
+make caesar
+./caesar 3
+make caesar
+./caesar 5
+make caesar
+make caesar
+./caesar 5
+make caesar
+./caesar 5
+make caesar
+./caesar 5
+make caesar
+make caesar
+./caesar 5
+make caesar
+./caesar 5
+make caesar
+./caesar 5
+make caesar
+make caesar
+./caesar 5
+make caesar
+./caesar 4
+make caesar
+./caesar 4
+./caesar 5
+make caesar
+make caesar
+./caesar 5
+make caesar
+./caesar 6
+make caesar
+./caesar 6
+make caesar
+make caesar 
+./caesar 6
+make caesar
+make caesar
+./caesar 6
+make caesar
+./caesar 3
+make caesar
+./caesar 5
+make caesar
+make caesar
+make caesar
+help50 make caesar
+make caesar
+./caesar 6
+make caesar
+./caesar 4
+./caesar 6
+make caesar
+make caesar
+./caesar 6
+make caesar
+make caesar
+make caesar
+./caesar 5
+make caesar
+./caesar 1
+make caesar
+./caesar
+make caesar
+make caesar
+./caesar 1
+make caesar
+./caesar 1
+make caesar
+./caesar 1
+make caesar
+./caesar 1
+make caesar
+./caesar 1
+help50 make caesar
+make caesar
+./caesar 1
+make caesar
+./caesar 1
+make caesar
+./caesar 1
+make caesar
+./caesar 1
+./caesar
+make caesar
+./caesar 2
+make caesar
+make caesar
+./caesar 5
+make caesar
+make caesar
+./caesar 5
+make caesar
+./caesar 5
+make caesar
+./caesar 5
+make caesar
+./caesar 1
+make caesar
+./caesar 2
+make caesar
+./caesar 2
+make caesar
+./caesar 1
+style50 caesar.c
+check50 cs50/problems/2020/x/caesar
+make caesar
+./caesar 2
+make caesar
+./caesar 25
+check50 cs50/problems/2020/x/caesar
+make caesar
+make caesar
+make caesar
+./caesar 1
+make caesar
+./caesar 1
+make caesar
+make caesar
+./caesar 1
+make caesar
+./caesar 1
+make caesar
+./caesar 1
+make caesar
+./caesar 1
+make caesar
+./caesar 2
+make caesar
+./caesar 2
+make caesar
+./caesar 5
+make caesar
+make caesar
+./caesar 1
+make caesar
+./ caesar 45
+make caesar
+./caesar 45
+make caesar
+./caesar 5
+make caesar
+./caesar 5
+make caesar
+./caesar 1
+make caesar
+./caesar 1
+make caesar
+./caesar
+make caesar
+./caesar 5
+make caesar
+./caesar 5
+make caesar
+./caesar 2
+./caesar 3
+./caesar 4
+make caesar
+./caesar 4
+check50 cs50/problems/2020/x/caesar
+make caesar
+./caesar 5
+./caesar 1
+./caesar 4
+make caesar
+./caesar 5
+./caesar 23
+check50 cs50/problems/2020/x/caesar
+./caesar 6
+.caesar 4 5
+./caesar 4 5
+./caesar 5x
+make caesar
+make caesar
+help50 make caesar
+help50 make caesar
+help50 make caesar
+help50 make caesar
+make caesar
+help50 make caesar
+help50 make caesar
+help50 make caesar
+make caesar
+./caesar 5
+check50 cs50/problems/2020/x/caesar
+make caesar
+./caesar 65
+make caesar
+./caesar
+./caesar 4 6
+help50 make caesar
+help50 make caesar
+help50 make caesar
+help50 make caesar
+make caesar
+make caesar
+make caesar
+help50 make caesar
+make caesar
+make caesar
+make caesar
+make caesar
+make caesar
+help50 make caesar
+make caesar
+make caesar
+./caesar 5
+make caesar
+./caesar 5
+make caesar
+help50 make caesar
+make caesar
+make caesar
+./caesar 4x
+make caesar
+./caesar 5
+make caesar
+./caesar 105
+make caesar
+./caesar 57
+./caesar 78w8
+make caesar
+make caesar
+./caesar 50x3
+make caesar
+./caesar 5
+make caesar
+./caesar 50x
+make caesar
+./caesar 50
+./caesar 78xB
+check50 cs50/problems/2020/x/caesar
+check50 cs50/problems/2020/x/caesar
+make caesar
+./ caesar 50X
+./caesar 50x
+./caesar 50x
+./ceasar 5
+./caesar 5
+./caesar 5 8
+make caesar
+./caesar
+make caesar1
+help50 make caesar1
+make caesar1
+help50 make caesar1
+make caesar
+make caesar1
+debug50 make caesar1
+debug50 ./caesar1 
+make caesar1
+help50 make caesar1
+help50 make caesar1
+help50 make caesar1
+make caesar1
+make caesar1
+make caesar1
+make caesar1
+make caesar1
+make caesar1
+make caesar1
+make caesar1
+make caesar1
+help50 make caesar1
+make caesar1
+help50 make caesar1
+make caesar1
+make caesar1
+make caesar1
+make caesar1
+make caesar1
+./caesar1 50x
+./caesar1 4 8
+./caesar u
+./caesar
+./caesar1 31
+./caedar1 5
+./caesar1 5
+./caesar1
+make caesar1
+make caesar1
+./caesar1 5
+./caesar1 6p
+./caesar1
+make caesar1
+./caesar1 5
+./caesar1
+make caesar1
+./caesar1
+./caesar1 4x
+./caesar1 5 33
+./caesar1 4
+make caesar
+./caesar
+./caesar 5 19
+./caesar 50x
+./caesar 31
+check50 cs50/problems/2020/x/caesar

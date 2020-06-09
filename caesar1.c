@@ -4,6 +4,8 @@
 #include <stdlib.h>
 #include <ctype.h>
 
+// bool check(string argument);
+
 int main(int argc, string argv[])
 {
     string arg = argv[1];
@@ -50,3 +52,18 @@ int main(int argc, string argv[])
     printf("\n");
     return 0;
 }
+
+// bool check(string argument)
+// {
+//     string arg = argument;
+
+//     for (int i = 0, n = strlen(arg); i < n; i++)
+//     {
+//         if (!!isdigit(arg[i]) == 0)
+//         {
+//             // printf("Usage: ./caesar key\nKey must be numeric\n");
+//             return false;
+//         }
+//     return true;
+//     }
+// }
